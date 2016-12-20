@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/preferences"
+            android:key="preferences">
+        <SwitchPreference
+            android:title="@string/enable_pin_code"
+            android:key="enable_pin_code"
+            />
+        <Preference
+            android:title="@string/change_pin_code"
+            android:key="change_pin_code"
+            />
+        <SwitchPreference
+            android:title="@string/display_local_currency"
+            android:key="display_local_currency"
+            />
+        <Preference
+                android:title="@string/bitcoin_unit"
+                android:key="units"
+        />
+        <Preference
+                android:title="@string/local_currency"
+                android:key="fiat"
+        />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/transaction_fee"
+        android:key="transaction_fee">
+        <SwitchPreference
+            android:title="@string/enable_dynamic_fee"
+            android:key="enable_dynamic_fee"
+            />
+        <Preference
+            android:title="@string/fixed_fee_amount"
+            android:key="fixed_fee_amount"
+            />
+        <Preference
+            android:title="@string/dynamic_fee_options"
+            android:key="dynamic_fee_options"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/security"
+            android:key="security">
+        <Preference
+            android:title="@string/show_backup_passphrase"
+            android:key="key_backup_passphrase"
+            />
+        <Preference
+            android:title="@string/restore_wallet"
+            android:key="key_restore_wallet"
+            />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+            android:title="@string/other"
+            android:key="app">
+        <Preference
+            android:title="@string/advanced_settings"
+            android:key="key_advanced_settings"
+            />
+        <Preference
+            android:title="@string/about"
+            android:key="key_about"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>

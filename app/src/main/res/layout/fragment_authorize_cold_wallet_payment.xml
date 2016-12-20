@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/dummy_fix_to_top_cut_off"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@color/list_view_background"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:id="@+id/list_item_section_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"/>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#000"
+                            android:text="@string/step_1_scan_transaction_to_authorize"
+                            android:gravity="center_vertical"/>
+                        <ImageView
+                            android:id="@+id/scan_info_image_view"
+                            android:layout_marginLeft="16dp"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:tint="@color/arcbit_main"
+                            android:src="@drawable/ic_arcbit_question"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="50dp">
+                        <Button
+                            android:id="@+id/scan_button"
+                            android:text="@string/scan"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/roundshape"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textAllCaps="false"/>
+
+                        <TextView
+                            android:id="@+id/scan_status_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#000"
+                            android:gravity="center_horizontal"
+                            android:text="@string/incomplete"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#000"
+                            android:text="@string/step_2_input_12_word_backup_passphrase"
+                            android:gravity="center_vertical"/>
+                        <ImageView
+                            android:id="@+id/mnemonic_info_image_view"
+                            android:layout_marginLeft="16dp"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:tint="@color/arcbit_main"
+                            android:src="@drawable/ic_arcbit_question"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+                        <EditText
+                            android:id="@+id/mnemonic_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textNoSuggestions|textMultiLine"
+                            android:maxLines ="8"
+                            android:scrollbars = "vertical"
+                            android:textSize="14sp"
+                            android:padding="5dp"
+                            android:background="@drawable/edittext_border"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/mnemonic_status_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="14sp"
+                        android:textColor="#000"
+                        android:text="@string/incomplete"/>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#000"
+                            android:text="@string/step_3_pass_authorized_transaction_data"
+                            android:gravity="center_vertical"/>
+                        <ImageView
+                            android:id="@+id/pass_tx_info_image_view"
+                            android:layout_marginLeft="16dp"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:tint="@color/arcbit_main"
+                            android:src="@drawable/ic_arcbit_question"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="50dp">
+                        <Button
+                            android:id="@+id/pass_button"
+                            android:text="@string/pass"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/roundshape"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:textSize="14sp"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textAllCaps="false"/>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent">
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

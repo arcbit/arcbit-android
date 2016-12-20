@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pin_instruction"
+            android:layout_above="@+id/pin_entry_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp" />
+
+        <LinearLayout
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pin_entry_layout">
+
+            <EditText
+                android:layout_height="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/pin_entry_1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="28sp"
+                android:inputType="numberPassword"/>
+
+            <EditText
+                android:layout_height="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/pin_entry_2"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="28sp"
+                android:inputType="numberPassword"/>
+
+            <EditText
+                android:layout_height="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/pin_entry_3"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="28sp"
+                android:inputType="numberPassword"/>
+
+            <EditText
+                android:layout_height="50dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:id="@+id/pin_entry_4"
+                android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="1"
+                android:textSize="28sp"
+                android:inputType="numberPassword"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

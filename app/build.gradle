@@ -1,0 +1,101 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    defaultConfig {
+        applicationId "com.arcbit.arcbit"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 12
+        versionName "1.0.1"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+ext {
+    buildToolsSupportVersion = '25.0.1'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "com.android.support:appcompat-v7:$buildToolsSupportVersion"
+    compile "com.android.support:design:$buildToolsSupportVersion"
+    compile "com.android.support:support-v13:$buildToolsSupportVersion"
+
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'org.slf4j:slf4j-api:1.7.13'
+    compile 'org.bitcoinj:bitcoinj-core:0.14.3'
+    compile 'commons-io:commons-io:2.4'
+    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'com.neovisionaries:nv-websocket-client:1.30'
+    compile('com.google.zxing:core:3.2.1') { transitive = true }
+    compile 'fr.avianey.com.viewpagerindicator:library:2.4.1@aar'
+    compile 'info.guardianproject.netcipher:netcipher:1.2.1'
+    compile ('io.socket:socket.io-client:0.7.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.3@aar') {
+        transitive = true;
+    }
+
+    testCompile 'junit:junit:4.12'
+    //Classes from the android framework won't work in local jvm unit tests. Added below for unit test purposes only
+    testCompile 'org.json:json:20140107'
+    testCompile 'org.slf4j:slf4j-simple:1.7.20'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
+// Required because retrolambda is on maven central
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabric.io/public' }
+}

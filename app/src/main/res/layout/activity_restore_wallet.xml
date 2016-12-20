@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/layoutTitle"
+        android:background="#24abdc">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restore_wallet"
+            android:textColor="#fff"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView3" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arcbit_arrow_left"
+            android:textColor="#fff"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:id="@+id/backImageButton" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:text="@string/restore_wallet_description"
+            android:textColor="#000"
+            android:id="@+id/restore_wallet_description"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/passphrase_edittext"
+            android:layout_alignStart="@+id/passphrase_edittext"
+            android:layout_marginTop="15dp" />
+
+        <com.arcbit.arcbit.ui.utils.TLActionEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/restore_wallet_description"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="15dp"
+            android:gravity="top"
+            android:textColor="#fff"
+            android:inputType="textNoSuggestions|textMultiLine"
+            android:maxLines ="12"
+            android:focusable="true"
+            android:id="@+id/passphrase_edittext"
+            android:background="@drawable/roundshape">
+            <requestFocus />
+        </com.arcbit.arcbit.ui.utils.TLActionEditText>
+    </RelativeLayout>
+
+</LinearLayout>

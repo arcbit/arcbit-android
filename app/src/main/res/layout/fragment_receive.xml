@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/from_colon"
+        android:id="@+id/texFrom"
+        android:layout_marginTop="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp" />
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/texFrom"
+        android:layout_alignLeft="@+id/texFrom"
+        android:layout_alignStart="@+id/texFrom"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/roundshape"
+        android:padding="5dp"
+        android:id="@+id/layoutAccount"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/account_name"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@android:color/white"
+            android:layout_alignTop="@+id/account_balance"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/account_balance"
+            android:textColor="@android:color/white"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/account_name"
+            android:layout_toLeftOf="@+id/selectAccountArrow"
+            android:layout_toStartOf="@+id/selectAccountArrow"
+            android:layout_toEndOf="@+id/account_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+        <ProgressBar
+            android:id="@+id/balanceProgressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:background="@drawable/progress_spinner"
+            android:layout_toLeftOf="@+id/selectAccountArrow"
+            android:layout_toStartOf="@+id/selectAccountArrow"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_centerHorizontal="true" />
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_arcbit_arrow_right"
+            android:scaleType="fitXY"
+            android:background="#00000000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/selectAccountArrow" />
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/qr_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/layoutAccount"
+        android:layout_alignRight="@+id/ll_indicator"
+        android:layout_alignEnd="@+id/ll_indicator"
+        android:layout_marginTop="10dp"
+        android:layout_above="@+id/ll_indicator"
+        android:layout_alignLeft="@+id/ll_indicator"
+        android:layout_alignStart="@+id/ll_indicator" />
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/roundshape"
+        android:id="@+id/ll_indicator"
+        android:layout_above="@+id/dummy"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp">
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            app:pageColor="#88000000"
+            app:strokeColor="#88000000"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:weightSum="1"
+        android:id="@+id/dummy"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ccc">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5">
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="fitXY"
+                android:id="@+id/but_send"
+                android:src="@drawable/ic_arcbit_upload2"
+                android:background="#00ff0000"
+                android:layout_centerVertical="true"
+                android:layout_weight="0"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.5">
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:scaleType="fitXY"
+                android:id="@+id/but_receive"
+                android:src="@drawable/ic_arcbit_download2"
+                android:background="#00ff0000"
+                android:tint="@color/arcbit_main"
+                android:layout_centerVertical="true"
+                android:layout_weight="0"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

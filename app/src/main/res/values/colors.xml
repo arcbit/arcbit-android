@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="arcbit_main">#24abdc</color>
+	<color name="arcbit_main_dark">#197799</color>
+	<color name="arcbit_main_color_control">#95E3FF</color>
+	<color name="arcbit_main_opposite">#ffffff</color>
+	<color name="list_view_background">#eee</color>
+
+	<color name="toast_error_background">#FFCACC</color>
+	<color name="toast_error_text">#660003</color>
+	<color name="toast_info_background">#1C1C1C</color>
+	<color name="toast_info_text">#E6E6E6</color>
+	<color name="toast_success_background">#CCFC50</color>
+	<color name="toast_success_text">#224506</color>
+
+	<color name="red">#ff0000</color>
+	<color name="grey">#757575</color>
+	<color name="white">#ffffff</color>
+	<color name="black">#000000</color>
+
+	<color name="barcode_viewfinder_laser">#ffcc0000</color>
+	<color name="barcode_viewfinder_mask">#60000000</color>
+	<color name="barcode_possible_result_points">#FF1B8AC7</color>
+	<color name="barcode_result_view">#b0000000</color>
+	<color name="barcode_result_points">#8085b45b</color>
+</resources>

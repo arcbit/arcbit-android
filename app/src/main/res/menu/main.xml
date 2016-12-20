@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/use_all_funds"
+        android:orderInCategory="100"
+        android:title="Use All Funds"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/refresh_balance"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_arcbit_spinner11"
+        android:title="Refresh Balance"
+        app:showAsAction="always" />
+</menu>

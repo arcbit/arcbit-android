@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:id="@+id/arcbit_side_menu">
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_arcbit_upload2"
+            android:title="@string/send" />
+        <item
+            android:id="@+id/nav_receive"
+            android:icon="@drawable/ic_arcbit_download2"
+            android:title="@string/receive" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_arcbit_file_text2"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/nav_accounts"
+            android:icon="@drawable/ic_arcbit_data"
+            android:title="@string/accounts" />
+        <item
+            android:id="@+id/nav_cold_wallet"
+            android:icon="@drawable/ic_arcbit_vault"
+            android:title="@string/cold_wallet" />
+        <item
+            android:id="@+id/nav_more"
+            android:icon="@drawable/ic_arcbit_link"
+            android:title="@string/more" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_arcbit_settings"
+            android:title="@string/settings" />
+    </group>
+
+</menu>

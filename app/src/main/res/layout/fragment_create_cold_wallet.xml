@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/dummy_fix_to_top_cut_off"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@color/list_view_background"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <TextView
+                            android:id="@+id/list_item_section_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"/>
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16sp"
+                            android:textColor="#000"
+                            android:text="@string/backup_passphrase_colon"
+                            android:gravity="center_vertical"/>
+                        <ImageView
+                            android:id="@+id/mnemonic_info_image_view"
+                            android:layout_marginLeft="16dp"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:tint="@color/arcbit_main"
+                            android:src="@drawable/ic_arcbit_question"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp">
+
+                        <EditText
+                            android:id="@+id/mnemonic_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textNoSuggestions|textMultiLine"
+                            android:maxLines ="8"
+                            android:textSize="14sp"
+                            android:padding="5dp"
+                            android:scrollbars = "vertical"
+                            android:background="@drawable/edittext_border"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <Button
+                            android:id="@+id/new_wallet_button"
+                            android:text="@string/new_wallet"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/roundshape"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:textSize="16sp"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textAllCaps="false"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:textSize="16sp"
+                            android:textColor="#000"
+                            android:text="@string/account_id_colon"
+                            android:gravity="center_vertical"/>
+                        <EditText
+                            android:id="@+id/account_id_edit_text"
+                            android:layout_width="60dp"
+                            android:layout_height="30dp"
+                            android:inputType="number"
+                            android:scrollHorizontally="true"
+                            android:padding="5dp"
+                            android:hint="0"
+                            android:textSize="16sp"
+                            android:background="@drawable/edittext_border"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
+                        <ImageView
+                            android:id="@+id/account_info_image_view"
+                            android:layout_width="18dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:tint="@color/arcbit_main"
+                            android:src="@drawable/ic_arcbit_question"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="16sp"
+                        android:textColor="#000"
+                        android:text="@string/account_public_key_colon"
+                        android:gravity="center_vertical"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <EditText
+                            android:id="@+id/account_public_key_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="textNoSuggestions|textMultiLine"
+                            android:maxLines ="8"
+                            android:scrollbars = "vertical"
+                            android:textSize="14sp"
+                            android:padding="5dp"
+                            android:background="@drawable/edittext_border"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout android:layout_width="match_parent"
+                        android:layout_height="50dp">
+
+                        <Button
+                            android:id="@+id/account_public_key_qr_code_button"
+                            android:text="@string/qr_code"
+                            android:layout_width="120dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/roundshape"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:textSize="16sp"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textAllCaps="false"/>
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp">
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="@color/list_view_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent">
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

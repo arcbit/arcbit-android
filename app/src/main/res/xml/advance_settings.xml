@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+            android:title="@string/advanced_settings"
+            android:key="advanced_settings">
+        <SwitchPreference
+            android:title="@string/enable_cold_wallet"
+            android:key="enable_cold_wallet"
+            />
+        <SwitchPreference
+                android:title="@string/enable_advanced_mode"
+                android:key="enable_advanced_mode"
+        />
+        <SwitchPreference
+                android:title="@string/default_reusable_addresses"
+                android:key="default_reusable_addresses"
+        />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/block_explorer_api"
+        android:key="block_explorer">
+        <Preference
+            android:title="@string/block_explorer_api_type"
+            android:key="block_explorer_api"
+            />
+        <Preference
+            android:title="@string/block_explorer_url"
+            android:key="block_explorer_url"
+            />
+    </PreferenceCategory>
+
+</PreferenceScreen>
