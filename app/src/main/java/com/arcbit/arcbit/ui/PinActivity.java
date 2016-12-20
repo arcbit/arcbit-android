@@ -53,6 +53,9 @@ public class PinActivity extends Activity {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        return appDelegate.suggestions.checkToShowHiddenOverlayWarning(this, event) || super.dispatchTouchEvent(event);
+        if (appDelegate != null && appDelegate.suggestions != null) {
+            return appDelegate.suggestions.checkToShowHiddenOverlayWarning(this, event) || super.dispatchTouchEvent(event);
+        }
+        return super.dispatchTouchEvent(event);
     }
 }
