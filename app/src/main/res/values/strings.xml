@@ -67,7 +67,7 @@
     <string name="master_seed_hex">Master Seed Hex</string>
     <string name="wallet_backup_passphrase">Wallet backup passphrase</string>
     <string name="passphrase">Passphrase</string>
-    <string name="restore_wallet_description">Enter this wallet\'s backup phrase to wipe it and start/restore another.</string>
+    <string name="restore_wallet_description">Enter a wallet backup passphrase to wipe the current wallet and start/restore another.</string>
     <string name="review_payment">Review Payment</string>
     <string name="contacts">Contacts</string>
     <string name="history">History</string>
