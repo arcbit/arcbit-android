@@ -17,7 +17,7 @@
     <string name="show_backup_passphrase">Show Backup Passphrase</string>
     <string name="restore_wallet">Restore Wallet</string>
     <string name="other">Other</string>
-    <string name="advanced_settings">Advanced settings</string>
+    <string name="advanced_settings">Advanced Settings</string>
     <string name="enable_advanced_mode">Enable advanced mode</string>
     <string name="enable_cold_wallet">Enable cold wallet</string>
     <string name="default_reusable_addresses">Default Reusable Addresses</string>
