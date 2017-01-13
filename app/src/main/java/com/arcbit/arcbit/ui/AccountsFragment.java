@@ -290,7 +290,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                         return new SectionItem(getString(R.string.hd_accounts));
                     } else {
                         TLAccountObject accountObject = appDelegate.accounts.getAccountObjectForIdx(position - 1);
-                        String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                        String balance;
+                        if (accountObject.getBalance() != null) {
+                            balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                        } else {
+                            balance = "";
+                        }
                         return new EntryItem(balance, accountObject.getAccountName(), accountObject);
                     }
                 }
@@ -303,7 +308,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                         return new SectionItem(getString(R.string.cold_wallet_accounts));
                     } else {
                         TLAccountObject accountObject = appDelegate.coldWalletAccounts.getAccountObjectForIdx(position - offset - 1);
-                        String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                        String balance;
+                        if (accountObject.getBalance() != null) {
+                            balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                        } else {
+                            balance = "";
+                        }
                         return new EntryItem(balance, accountObject.getAccountName(), accountObject);
                     }
                 }
@@ -318,7 +328,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                             return new SectionItem(getString(R.string.imported_accounts));
                         } else {
                             TLAccountObject accountObject = appDelegate.importedAccounts.getAccountObjectForIdx(position - offset - 1);
-                            String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                            String balance;
+                            if (accountObject.getBalance() != null) {
+                                balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                            } else {
+                                balance = "";
+                            }
                             return new EntryItem(balance, accountObject.getAccountName(), accountObject);
                         }
                     }
@@ -331,7 +346,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                             return new SectionItem(getString(R.string.imported_watch_accounts));
                         } else {
                             TLAccountObject accountObject = appDelegate.importedWatchAccounts.getAccountObjectForIdx(position - offset - 1);
-                            String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                            String balance;
+                            if (accountObject.getBalance() != null) {
+                                balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());
+                            } else {
+                                balance = "";
+                            }
                             return new EntryItem(balance, accountObject.getAccountName(), accountObject);
                         }
                     }
@@ -344,8 +364,14 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                             return new SectionItem(getString(R.string.imported_addresses));
                         } else {
                             TLImportedAddress importedAddressObject = appDelegate.importedAddresses.getAddressObjectAtIdx(position - offset - 1);
-                            String balance = appDelegate.currencyFormat.getProperAmount(importedAddressObject.getBalance());
+                            String balance;
+                            if (importedAddressObject.getBalance() != null) {
+                                balance = appDelegate.currencyFormat.getProperAmount(importedAddressObject.getBalance());
+                            } else {
+                                balance = "";
+                            }
                             return new EntryItem(balance, importedAddressObject.getLabel(), importedAddressObject);
+
                         }
                     }
                     offset = maxRange;
@@ -357,7 +383,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                             return new SectionItem(getString(R.string.imported_watch_addresses));
                         } else {
                             TLImportedAddress importedAddressObject = appDelegate.importedWatchAddresses.getAddressObjectAtIdx(position - offset - 1);
-                            String balance = appDelegate.currencyFormat.getProperAmount(importedAddressObject.getBalance());
+                            String balance;
+                            if (importedAddressObject.getBalance() != null) {
+                                balance = appDelegate.currencyFormat.getProperAmount(importedAddressObject.getBalance());
+                            } else {
+                                balance = "";
+                            }
                             return new EntryItem(balance, importedAddressObject.getLabel(), importedAddressObject);
                         }
                     }
@@ -1022,6 +1053,9 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshAccountBalances(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.accounts == null) {
+            return;
+        }
         for (int i = 0; i < appDelegate.accounts.getNumberOfAccounts(); i++) {
             TLAccountObject accountObject = appDelegate.accounts.getAccountObjectForIdx(i);
             if (!accountObject.hasFetchedAccountData() || fetchDataAgain) {

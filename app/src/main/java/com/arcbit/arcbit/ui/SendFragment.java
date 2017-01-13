@@ -208,6 +208,9 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (appDelegate == null || appDelegate.sendFormData == null) {
+                    return;
+                }
                 appDelegate.sendFormData.setAddress(s.toString());
             }
         });
