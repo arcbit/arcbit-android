@@ -58,4 +58,10 @@ public class PinActivity extends Activity {
         }
         return super.dispatchTouchEvent(event);
     }
+
+    @Override
+    public void onBackPressed() {
+        // background app on back pressed
+        moveTaskToBack(true);
+    }
 }
