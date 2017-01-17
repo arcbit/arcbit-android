@@ -30,7 +30,7 @@
     <string name="rate">Rate</string>
     <string name="like_using_arcbit">Like using ArcBit?</string>
     <string name="checkout_the_arcbit_web_wallet">Check out the ArcBit Web Wallet!</string>
-    <string name="checkout_the_arcbit_web_wallet_description">Use ArcBit on your browser to complement the mobile app. The web wallet has all the features that the mobile wallet has plus more! Including a new easy way to store and spend Bitcoins from cold storage.</string>
+    <string name="checkout_the_arcbit_web_wallet_description">Use ArcBit on your browser to complement the mobile app. The web wallet has all the features that the mobile wallet has plus more!</string>
     <string name="error_fetching_unspent_outputs_try_again">Error fetching unspent outputs. Try again.</string>
     <string name="error_fetching_unspent_outputs_try_again_later">Error fetching unspent outputs. Try again later.</string>
     <string name="unable_to_get_dynamic_fees">Unable to get dynamic fees. Falling back on fixed transaction fee. (fee can be configured on review payment)</string>
