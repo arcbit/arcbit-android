@@ -172,6 +172,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshAccountBalances(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.accounts == null) {
+            return;
+        }
         for (int i = 0; i < appDelegate.accounts.getNumberOfAccounts(); i++) {
             TLAccountObject accountObject = appDelegate.accounts.getAccountObjectForIdx(i);
             if (!accountObject.hasFetchedAccountData() || fetchDataAgain) {
@@ -181,6 +184,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshColdWalletAccounts(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.coldWalletAccounts == null) {
+            return;
+        }
         for (int i = 0; i < appDelegate.coldWalletAccounts.getNumberOfAccounts(); i++) {
             TLAccountObject accountObject = appDelegate.coldWalletAccounts.getAccountObjectForIdx(i);
             if (!accountObject.hasFetchedAccountData() || fetchDataAgain) {
@@ -190,6 +196,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshImportedAccounts(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.importedAccounts == null) {
+            return;
+        }
         for (int i = 0; i < appDelegate.importedAccounts.getNumberOfAccounts(); i++) {
             TLAccountObject accountObject = appDelegate.importedAccounts.getAccountObjectForIdx(i);
             if (!accountObject.hasFetchedAccountData() || fetchDataAgain) {
@@ -199,6 +208,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshImportedWatchAccounts(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.importedWatchAccounts == null) {
+            return;
+        }
         for (int i = 0; i < appDelegate.importedWatchAccounts.getNumberOfAccounts(); i++) {
             TLAccountObject accountObject = appDelegate.importedWatchAccounts.getAccountObjectForIdx(i);
             if (!accountObject.hasFetchedAccountData() || fetchDataAgain) {
@@ -208,6 +220,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     private void refreshImportedAddressBalances(boolean fetchDataAgain) {
+        if (appDelegate == null || appDelegate.importedAddresses == null) {
+            return;
+        }
         if (appDelegate.importedAddresses.getCount() > 0 &&
                 (!appDelegate.importedAddresses.hasFetchedAddressesData() || fetchDataAgain)) {
             appDelegate.importedAddresses.checkToGetAndSetAddressesDataO(fetchDataAgain);

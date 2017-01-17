@@ -273,6 +273,9 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
         amountEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+                if (((MainActivity) getActivity()).useAllFundsMenuItem == null) {
+                    return;
+                }
                 if (hasFocus) {
                     ((MainActivity) getActivity()).useAllFundsMenuItem.setVisible(true);
                 } else {
@@ -284,6 +287,9 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
         fiatAmountEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
+                if (((MainActivity) getActivity()).useAllFundsMenuItem == null) {
+                    return;
+                }
                 if (hasFocus) {
                     ((MainActivity) getActivity()).useAllFundsMenuItem.setVisible(true);
                 } else {
