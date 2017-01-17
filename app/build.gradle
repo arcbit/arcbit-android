@@ -14,8 +14,8 @@ android {
         applicationId "com.arcbit.arcbit"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 14
-        versionName "1.0.3"
+        versionCode 15
+        versionName "1.0.4"
         multiDexEnabled true
     }
     buildTypes {
