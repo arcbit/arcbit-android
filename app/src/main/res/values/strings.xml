@@ -46,7 +46,7 @@
     <string name="funds_may_be_pending_confirmation">Some funds may be pending confirmation and cannot be spent yet. (Check your account history) Account only has a spendable balance of %1$s</string>
     <string name="insufficient_funds_dust">Insufficient Funds. Account contains bitcoin dust. You can only send up to %1$s for now.</string>
     <string name="cannot_create_transactions_with_outputs_less_then">Cannot create transactions with outputs less then %1$s</string>
-    <string name="insufficient_funds_account_balance">"Insufficient Funds. Account balance is %1$s when %2$s is required."</string>
+    <string name="insufficient_funds_account_balance">Insufficient Funds. Account balance is %1$s when %2$s is required.</string>
     <string name="imported_watch_addresses">Imported Watch Addresses</string>
     <string name="cold_wallet_accounts">Cold Wallet Accounts</string>
     <string name="imported_watch_accounts">Imported Watch Accounts</string>
@@ -62,7 +62,7 @@
     <string name="ask_to_restore_wallet">Do you want to restore from your backup passphrase or start a new wallet?</string>
     <string name="backup_passphrase_found">Backup passphrase found in keychain</string>
     <string name="passphrase_instructions">Write down the 12 word passphrase below and keep it safe. You can restore your entire wallets\' bitcoins with this single passphrase. The passphrase is also known as the seed or mnemonic.</string>
-    <string name="passphrase_instructions_advanced">"Write down the 12 word passphrase below and keep it safe. You can restore your entire wallets\' bitcoins (excluding imports) with this single passphrase. The passphrase is also known as the seed or mnemonic.</string>
+    <string name="passphrase_instructions_advanced">Write down the 12 word passphrase below and keep it safe. You can restore your entire wallets\' bitcoins (excluding imports) with this single passphrase. The passphrase is also known as the seed or mnemonic.</string>
     <string name="master_seed_hex_description">The master seed hex is derived from the passphrase. If you want to import Bitcoins into another wallet, and if that other wallets don\'t use BIP39, then it\'s possible to import the Bitcoins using the master seed hex as long as they support BIP44.</string>
     <string name="master_seed_hex">Master Seed Hex</string>
     <string name="wallet_backup_passphrase">Wallet backup passphrase</string>
@@ -229,8 +229,8 @@
     <string name="importing_cold_wallet_account">Importing Cold Wallet Account</string>
     <string name="importing_watch_account">Importing Watch Account</string>
     <string name="invalid_account_public_key">Invalid account public key</string>
-    <string name="encrypted">encrypted</string>
-    <string name="unencrypted">unencrypted</string>
+    <string name="encrypted">Encrypted</string>
+    <string name="unencrypted">Unencrypted</string>
     <string name="decrypting">Decrypting</string>
     <string name="cannot_import_reusable_address">Cannot import reusable address</string>
     <string name="input_account_private_key">Input account private key</string>
@@ -318,7 +318,7 @@
     <string name="preferences">Preferences</string>
     <string name="request_camera_permission">Camera access is required.</string>
     <string name="fee">Fee</string>
-    <string name="customize">customize</string>
+    <string name="customize">Customize</string>
     <string name="total">Total</string>
     <string name="security">Security</string>
     <string name="exit">Exit</string>
@@ -335,7 +335,7 @@
     <string name="select_units">Select BTC units</string>
     <string name="select_currency">Select Currency</string>
     <string name="cannot_use_app_on_this_device">ArcBit Wallet cannot be run on this device.</string>
-    <string name="backup_wallet">backup wallet</string>
+    <string name="backup_wallet">Backup wallet</string>
 
     <string name="parts_scanned">%1$d/%2$d parts scanned.</string>
     <string name="scan_next_part">Scan next part</string>
