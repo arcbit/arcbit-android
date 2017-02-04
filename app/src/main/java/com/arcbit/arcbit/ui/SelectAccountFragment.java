@@ -259,7 +259,7 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
                 maxRange += appDelegate.accounts.getNumberOfAccounts()+1;
                 if (position < maxRange) {
                     if (position == offset) {
-                        return new SectionItem(getString(R.string.hd_accounts));
+                        return new SectionItem(getString(R.string.accounts));
                     } else {
                         TLAccountObject accountObject = appDelegate.accounts.getAccountObjectForIdx(position - 1);
                         String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getBalance());

@@ -132,7 +132,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
         }
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        getActivity().setTitle(R.string.hd_accounts);
+        getActivity().setTitle(R.string.accounts);
 
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_DISPLAY_LOCAL_CURRENCY_TOGGLED));
@@ -287,7 +287,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                 maxRange += appDelegate.accounts.getNumberOfAccounts()+1;
                 if (position < maxRange) {
                     if (position == offset) {
-                        return new SectionItem(getString(R.string.hd_accounts));
+                        return new SectionItem(getString(R.string.accounts));
                     } else {
                         TLAccountObject accountObject = appDelegate.accounts.getAccountObjectForIdx(position - 1);
                         String balance;

@@ -30,14 +30,14 @@ public class SettingsActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         toolbar = (Toolbar) this.findViewById(R.id.toolbar_general);
-        toolbar.setTitle(getResources().getString(R.string.action_settings));
+        toolbar.setTitle(getResources().getString(R.string.settings));
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_arcbit_arrow_left));
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
-                toolbar.setTitle(getResources().getString(R.string.action_settings));
+                toolbar.setTitle(getResources().getString(R.string.settings));
             }
         });
     }
