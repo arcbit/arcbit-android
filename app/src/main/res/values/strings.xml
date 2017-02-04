@@ -113,7 +113,7 @@
     <string name="import_with_qr_code">Import with QR code</string>
     <string name="import_with_text_input">Import with text input</string>
     <string name="new_address_generation_explanation">New addresses will be automatically generated and cycled for you as you use your current available addresses.</string>
-    <string name="reusable_address_watch_only_account_explanation">Imported Watch Only Accounts can\'t see reusable address payments, thus this accounts\' reusable address is not available. If you want see the reusable address for this account import the account private key that corresponds to this accounts public key.</string>
+    <string name="reusable_address_watch_account_explanation">Imported Watch Accounts can\'t see reusable address payments, thus this accounts\' reusable address is not available. If you want see the reusable address for this account import the account private key that corresponds to this accounts public key.</string>
     <string name="reusable_address_cold_wallet_account_explanation">Cold Wallet Accounts can\'t see reusable address payments, thus this accounts\' reusable address is not available.</string>
     <string name="edit_contact_name">Edit Contact Name</string>
     <string name="delete_contact">Delete contact?</string>
@@ -135,7 +135,7 @@
     <string name="dear_arcbit_support">Dear ArcBit Support,</string>
     <string name="android_support">Android Support</string>
     <string name="arcbit_brain_wallet_detail">\tWith the Arcbit Brain Wallet you can safely spend your bitcoins without ever having your private keys be exposed to the internet. It can be use in conjuction with your Arcbit Wallet or as a stand alone wallet.\n</string>
-    <string name="arcbit_web_wallet_detail">\tArcBit Web Wallet is a Chrome extension. It has all the features of the mobile wallet plus more. Highlights include the ability to create multiple wallets instead of just one, and a new non-cumbersome way to generate wallets, store and spend bitcoins all from cold storage! ArcBit\'s new way to manage your cold storage bitcoins also offers a more compelling reason to use ArcBit\'s watch only account feature. Now you can safely watch the balance of your cold storage bitcoins by enabling advance mode in ArcBit and importing your cold storage account public keys.\n</string>
+    <string name="arcbit_web_wallet_detail">\tArcBit Web Wallet is a Chrome extension. It has all the features of the mobile wallet plus more. Highlights include the ability to create multiple wallets instead of just one, and a new non-cumbersome way to generate wallets, store and spend bitcoins all from cold storage! ArcBit\'s new way to manage your cold storage bitcoins also offers a more compelling reason to use ArcBit\'s watch account feature. Now you can safely watch the balance of your cold storage bitcoins by enabling advance mode in ArcBit and importing your cold storage account public keys.\n</string>
     <string name="arcbit_web_wallet_detail_2">\tUse ArcBit Web Wallet in whatever way you wish. You can create a new wallet, or you can input your current 12 word backup passphrase to manage the same bitcoins across different devices. Check out the ArcBit Web Wallet in the Chrome Web Store for more details.\n</string>
     <string name="enable_advanced_mode_description">Enabling advanced mode will expose hidden features, including the ability to import bitcoin private keys and addresses. Please note that the backup passphrase cannot recover your bitcoin private keys and addresses, so they should be backed up separately. To see a list of all the advance features, enable advanced mode and go to the Help section.</string>
     <string name="enable_cold_wallet_description">Enabling the cold wallet feature will allow you to create accounts which offer better security then normal online wallets. You will need 2 devices to use this feature. Your normal day to day device that is connected to the internet and another device that is not connected to the internet. You can find the cold wallet feature on the side menu.</string>
@@ -178,8 +178,8 @@
     <string name="actions">Actions</string>
     <string name="import_cold_wallet_account">Import Cold Wallet Account</string>
     <string name="import_account">Import Account</string>
-    <string name="import_watch_only_account">Import Watch Only Account</string>
-    <string name="import_watch_only_address">Import Watch Only Address</string>
+    <string name="import_watch_account">Import Watch Account</string>
+    <string name="import_watch_address">Import Watch Address</string>
     <string name="created_new_account">Created new account</string>
     <string name="account_number">Account %1$d</string>
     <string name="view_account_public_key_qr_code">View account public key QR code</string>
@@ -223,9 +223,9 @@
     <string name="account_account_name_imported">Account %1$s imported</string>
     <string name="error_importing_account">Error importing account</string>
     <string name="importing_account">Importing Account</string>
-    <string name="importing_cold_wallet_account_account_name">Imported Cold Wallet Account %1$s</string>
-    <string name="imported_account_account_name">Imported Account %1$s</string>
-    <string name="importing_watch_account_account_name">Imported Watch Account %1$s</string>
+    <string name="importing_cold_wallet_account_account_name">Imported Cold Wallet Account %1$d</string>
+    <string name="imported_account_account_name">Imported Account %1$d</string>
+    <string name="importing_watch_account_account_name">Imported Watch Account %1$d</string>
     <string name="importing_cold_wallet_account">Importing Cold Wallet Account</string>
     <string name="importing_watch_account">Importing Watch Account</string>
     <string name="invalid_account_public_key">Invalid account public key</string>

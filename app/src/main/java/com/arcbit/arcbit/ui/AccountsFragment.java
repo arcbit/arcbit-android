@@ -486,11 +486,11 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                 if (position == offset + 2) {
                     return new ActionItem(getString(R.string.import_account));
                 } else if (position == offset + 3) {
-                    return new ActionItem(getString(R.string.import_watch_only_account));
+                    return new ActionItem(getString(R.string.import_watch_account));
                 } else if (position == offset + 4) {
                     return new ActionItem(getString(R.string.import_private_key));
                 } else if (position == offset + 5) {
-                    return new ActionItem(getString(R.string.import_watch_only_address));
+                    return new ActionItem(getString(R.string.import_watch_address));
                 }
             }
 
@@ -2018,7 +2018,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                     appDelegate.saveWalletJson();
 
                     LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_IMPORT_COLD_WALLET_ACCOUNT));
-                    // don't need to call do accountObject.getAccountData like in importAccount() cause watch only account does not see stealth payments. yet
+                    // don't need to call do accountObject.getAccountData like in importAccount() cause watch account does not see stealth payments. yet
                     TLHUDWrapper.hideHUD();
                     TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.edit_account_name), "", getString(R.string.name), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                         @Override
@@ -2122,7 +2122,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                     appDelegate.saveWalletJson();
 
                     LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_IMPORT_WATCH_ONLY_ACCOUNT));
-                    // don't need to call do accountObject.getAccountData like in importAccount() cause watch only account does not see stealth payments. yet
+                    // don't need to call do accountObject.getAccountData like in importAccount() cause watch account does not see stealth payments. yet
                     TLHUDWrapper.hideHUD();
                     TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.edit_account_name), "", getString(R.string.name), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                         @Override
@@ -2293,12 +2293,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
     private void promptImportWatchAccountActionSheet() {
         CharSequence[] otherButtonTitles = {getString(R.string.import_with_qr_code), getString(R.string.import_with_text_input)};
         new AlertDialog.Builder(getActivity())
-                .setTitle(getString(R.string.import_watch_only_account))
+                .setTitle(getString(R.string.import_watch_account))
                 .setItems(otherButtonTitles, (dialog, which) -> {
                             if (which == 0) {
                                 scanQRCode(SCAN_URI_IMPORT_WATCH_ACCOUNT);
                             } else if (which == 1) {
-                                TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.import_watch_only_account),
+                                TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.import_watch_account),
                                         getString(R.string.input_account_public_key), "", InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                                             @Override
                                             public void onSuccess(Object obj) {
@@ -2358,12 +2358,12 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
     private void promptImportWatchAddressActionSheet() {
         CharSequence[] otherButtonTitles = {getString(R.string.import_with_qr_code), getString(R.string.import_with_text_input)};
         new AlertDialog.Builder(getActivity())
-                .setTitle(getString(R.string.import_watch_only_address))
+                .setTitle(getString(R.string.import_watch_address))
                 .setItems(otherButtonTitles, (dialog, which) -> {
                             if (which == 0) {
                                 scanQRCode(SCAN_URI_IMPORT_WATCH_ADDRESS);
                             } else if (which == 1) {
-                                TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.import_watch_only_address),
+                                TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.import_watch_address),
                                         "", getString(R.string.address), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                                             @Override
                                             public void onSuccess(Object obj) {

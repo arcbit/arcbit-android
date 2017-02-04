@@ -73,7 +73,7 @@ public class TLPageQRCodeFragment extends android.support.v4.app.Fragment {
             QRCodeLayout.setVisibility(View.GONE);
             String text;
             if (appDelegate.receiveSelectedObject.getAccountType() == TLWalletUtils.TLAccountType.ImportedWatch) {
-                text = getString(R.string.reusable_address_watch_only_account_explanation);
+                text = getString(R.string.reusable_address_watch_account_explanation);
             } else if (appDelegate.receiveSelectedObject.getAccountType() == TLWalletUtils.TLAccountType.ColdWallet) {
                 text = getString(R.string.reusable_address_cold_wallet_account_explanation);
             } else {
