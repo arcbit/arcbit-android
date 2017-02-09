@@ -93,7 +93,7 @@ public class RestoreWalletActivity extends Activity {
         }
     }
 
-    void handleAfterRecoverWallet(String mnemonicPassphrase) {
+    void handleAfterRecoverWallet() {
         appDelegate.updateGodSend(TLWalletUtils.TLSendFromType.HDWallet, 0);
         appDelegate.updateReceiveSelectedObject(TLWalletUtils.TLSendFromType.HDWallet, 0);
         appDelegate.updateHistorySelectedObject(TLWalletUtils.TLSendFromType.HDWallet, 0);
@@ -149,7 +149,7 @@ public class RestoreWalletActivity extends Activity {
                 appDelegate.refreshHDWalletAccounts(true);
                 appDelegate.refreshApp(mnemonicPassphrase, false);
                 appDelegate.saveWalletJSONEnabled = true;
-                handleAfterRecoverWallet(mnemonicPassphrase);
+                handleAfterRecoverWallet();
                 message.obj = true;
                 handler.sendMessage(Message.obtain(message));
             }

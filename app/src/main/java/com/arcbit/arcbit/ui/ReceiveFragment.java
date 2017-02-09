@@ -227,6 +227,7 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
         if (((MainActivity)getActivity()).refreshBalanceMenuItem != null) {
             ((MainActivity)getActivity()).refreshBalanceMenuItem.setVisible(true);
         }
+        updateViewToNewSelectedObject();
     }
 
     @Override
