@@ -316,6 +316,9 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
     }
 
     void updateViewToNewSelectedObject() {
+        if (appDelegate == null || appDelegate.receiveSelectedObject == null) {
+            return;
+        }
         this.updateAccountBalance();
         int receivingAddressesCount = appDelegate.receiveSelectedObject.getReceivingAddressesCount();
         if (receivingAddressesCount == 0) {
