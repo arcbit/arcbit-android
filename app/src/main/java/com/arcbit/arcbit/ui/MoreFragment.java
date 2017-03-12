@@ -94,7 +94,7 @@ public class MoreFragment extends android.support.v4.app.Fragment {
 
         @Override
         public int getCount() {
-            return 13;
+            return 14;
         }
 
         @Override
@@ -125,6 +125,8 @@ public class MoreFragment extends android.support.v4.app.Fragment {
                 return new SectionItem(getString(R.string.email_support));
             } else if (position == 12) {
                 return new LeftTitleItem(getString(R.string.email_support));
+            } else if (position == 13) {
+                return new LeftTitleItem(getString(R.string.report_translation_error));
             }
             return new SectionItem(getString(R.string.arcbit_web_wallet));
         }
@@ -179,6 +181,17 @@ public class MoreFragment extends android.support.v4.app.Fragment {
                                     String subject = getString(R.string.android_support);
                                     String androidOS = Build.VERSION.RELEASE;
                                     String message = String.format(getString(R.string.dear_arcbit_support)+"\n\n\n\n--\nApp Version: %s\nSystem: %s\n", appDelegate.preferences.getAppVersion(), androidOS);
+                                    intent.setType("text/plain");
+                                    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+                                    intent.putExtra(Intent.EXTRA_TEXT, message);
+                                    intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"support@arcbit.zendesk.com"});
+                                    Intent mailer = Intent.createChooser(intent, "Send email...");
+                                    startActivity(mailer);
+                                } else if (position == 13) {
+                                    Intent intent = new Intent(Intent.ACTION_SEND);
+                                    String subject = getString(R.string.android_support);
+                                    String androidOS = Build.VERSION.RELEASE;
+                                    String message = String.format(getString(R.string.format_wrong_translation_text_to_correct_translation_text)+"\n\n\n\n--\nApp Version: %s\nSystem: %s\n", appDelegate.preferences.getAppVersion(), androidOS);
                                     intent.setType("text/plain");
                                     intent.putExtra(Intent.EXTRA_SUBJECT, subject);
                                     intent.putExtra(Intent.EXTRA_TEXT, message);

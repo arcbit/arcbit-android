@@ -89,8 +89,17 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         transactionFeeAmountPref.setSummary(appDelegate.currencyFormat.coinToProperBitcoinAmountString(amount) + " " + appDelegate.currencyFormat.getBitcoinDisplay());
         transactionFeeAmountPref.setOnPreferenceClickListener(SettingsFragment.this);
         dynamicFeeOptionsPref = findPreference("dynamic_fee_options");
+
         TLTxFeeAPI.TLDynamicFeeSetting dynamicFeeOption = appDelegate.preferences.getDynamicFeeOption();
-        dynamicFeeOptionsPref.setSummary(TLTxFeeAPI.TLDynamicFeeSetting.getDynamicFeeOptionString(dynamicFeeOption));
+        appDelegate.preferences.setDynamicFeeOption(dynamicFeeOption);
+        if (dynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.FastestFee) {
+            dynamicFeeOptionsPref.setSummary(getString(R.string.as_fast_as_possible));
+        } else if (dynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.HalfHourFee) {
+            dynamicFeeOptionsPref.setSummary(getString(R.string.within_half_hour_90_probability));
+        } else if (dynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.HourFee) {
+            dynamicFeeOptionsPref.setSummary(getString(R.string.within_an_hour_90_probability));
+        }
+
         dynamicFeeOptionsPref.setOnPreferenceClickListener(this);
         PreferenceCategory transactionFeeCategory = (PreferenceCategory) findPreference("transaction_fee");
         if (appDelegate.preferences.enabledDynamicFee()) {
@@ -311,17 +320,29 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     }
 
     private void showPromptDynamicFeeOptions() {
-        final CharSequence[] units = TLTxFeeAPI.TLDynamicFeeSetting.getDynamicFeeOptions();
+        final CharSequence[] dynamicFeeOptions = {
+                getString(R.string.as_fast_as_possible),
+                getString(R.string.within_half_hour_90_probability),
+                getString(R.string.within_an_hour_90_probability)
+        };
+
         TLTxFeeAPI.TLDynamicFeeSetting dynamicFeeOption = appDelegate.preferences.getDynamicFeeOption();
 
         final int sel = TLTxFeeAPI.TLDynamicFeeSetting.getDynamicFeeOptionIdx(dynamicFeeOption);
 
         new AlertDialog.Builder(getActivity())
                 .setTitle(getString(R.string.fee_adjusted_to_confirm))
-                .setSingleChoiceItems(units, sel, (dialog, which) -> {
+                .setSingleChoiceItems(dynamicFeeOptions, sel, (dialog, which) -> {
                             TLTxFeeAPI.TLDynamicFeeSetting newDynamicFeeOption = TLTxFeeAPI.TLDynamicFeeSetting.getDynamicFeeOption(which);
                             appDelegate.preferences.setDynamicFeeOption(newDynamicFeeOption);
-                            dynamicFeeOptionsPref.setSummary(TLTxFeeAPI.TLDynamicFeeSetting.getDynamicFeeOptionString(newDynamicFeeOption));
+                            if (newDynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.FastestFee) {
+                                dynamicFeeOptionsPref.setSummary(getString(R.string.as_fast_as_possible));
+                            } else if (newDynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.HalfHourFee) {
+                                dynamicFeeOptionsPref.setSummary(getString(R.string.within_half_hour_90_probability));
+                            } else if (newDynamicFeeOption == TLTxFeeAPI.TLDynamicFeeSetting.HourFee) {
+                                dynamicFeeOptionsPref.setSummary(getString(R.string.within_an_hour_90_probability));
+                            }
+
                             dialog.dismiss();
                             refreshList();
                         }

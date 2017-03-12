@@ -27,27 +27,6 @@ public class TLTxFeeAPI {
 
     public enum TLDynamicFeeSetting {
         FastestFee, HalfHourFee, HourFee;
-        private static CharSequence[] dynamicFeeOption = {
-                "As fast as possible",
-                "Within half an hour (90% probability)",
-                "Within an hour (90% probability)"};
-
-        public static CharSequence[] getDynamicFeeOptions() {
-            return dynamicFeeOption;
-        }
-
-        public static String getDynamicFeeOptionString(TLDynamicFeeSetting feeOption) {
-            if (feeOption == FastestFee) {
-                return (String) dynamicFeeOption[0];
-            }
-            if (feeOption == HalfHourFee) {
-                return (String) dynamicFeeOption[1];
-            }
-            if (feeOption == HourFee) {
-                return (String) dynamicFeeOption[2];
-            }
-            return (String) dynamicFeeOption[0];
-        }
 
         public static TLDynamicFeeSetting getDynamicFeeOption(int idx) {
             if (idx == 0) {

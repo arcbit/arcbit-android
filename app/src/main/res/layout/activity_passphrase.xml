@@ -40,26 +40,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:text="@string/wallet_backup_passphrase"
             android:textColor="#000"
             android:textStyle="bold"
             android:id="@+id/passphrase_title"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="4dp" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:gravity="center"
             android:textColor="#000"
             android:id="@+id/passphrase_description"
             android:layout_below="@+id/passphrase_title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp" />
 
@@ -69,7 +69,7 @@
             android:layout_below="@+id/passphrase_description"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_margin="15dp"
+            android:layout_margin="8dp"
             android:textColor="#fff"
             android:textSize="16sp"
             android:gravity="center"
@@ -88,7 +88,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:text="@string/master_seed_hex"
             android:textColor="#000"
             android:textStyle="bold"
@@ -101,7 +101,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:gravity="center"
             android:text="@string/master_seed_hex_description"
             android:textColor="#000"
