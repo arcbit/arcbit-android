@@ -296,7 +296,7 @@
 	<string name="transaction_fee">手續費</string>
 	<string name="transaction_id">事務ID</string>
 	<string name="transaction_authorized">交易授權</string>
-	<string name="transaction_fee_how">交易費用影響比特幣礦業網絡如何快速確認您的交易，並取決於當前的網絡條件。</string>
+	<string name="transaction_fee_how">交易費用影響比特幣網絡如何快速確認您的交易。更高的費用意味著更快的確認時間。可以在設置中配置默認費用行為。</string>
 	<string name="transaction_is_not_a_reusable_address_transaction">交易不是一個可重用的地址交易。</string>
 	<string name="spending_from_a_cold_wallet_account_description">交易需要由離線和氣隙裝置被授權。發送交易到脫機設備授權？</string>
 	<string name="transaction_authorized_next_step_description">交易需要傳遞回您的在線設備，以便對要發送的付款</string>

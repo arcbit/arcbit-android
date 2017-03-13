@@ -297,7 +297,7 @@ public class TLAppDelegate {
         this.encryptedPreferences.setWalletJSONPassphrase(passphrase);
         this.preferences.clearEncryptedWalletPassphraseKey();
 
-        this.preferences.setEnabledDynamicFee(true);
+        this.preferences.setEnabledDynamicFee(false);
         this.preferences.setTransactionFee(TLTransactionFee.DEFAULT_FIXED_FEE_AMOUNT);
         this.preferences.setEnablePINCode(false);
         this.encryptedPreferences.setPINValue(null);

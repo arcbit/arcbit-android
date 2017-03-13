@@ -299,7 +299,7 @@
     <string name="transaction_fee">Комиссия на перевод</string>
     <string name="transaction_id">ID транзакции</string>
     <string name="transaction_authorized">сделка уполномоченный</string>
-    <string name="transaction_fee_how">транзакции сборы воздействия, как быстро горнодобывающая сеть Bitcoin подтвердит ваши транзакции, и зависят от текущих условий сети.</string>
+    <string name="transaction_fee_how">Сборы за транзакции влияют на то, насколько быстро сеть Биткойн подтвердит ваши транзакции. Более высокая плата означает более быстрое время подтверждения. Поведение платы по умолчанию можно настроить в настройках.</string>
     <string name="transaction_is_not_a_reusable_address_transaction">Сделка не является многоразовым адрес транзакций.</string>
     <string name="spending_from_a_cold_wallet_account_description">Транзакция должна быть авторизована автономным и воздушным зазором. Отправить транзакцию на автономное устройство для авторизации?</string>
     <string name="transaction_authorized_next_step_description">Сделка должна быть передана обратно в онлайн-устройства для того, чтобы платеж будет отправлен</string>

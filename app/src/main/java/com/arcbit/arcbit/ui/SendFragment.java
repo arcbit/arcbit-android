@@ -1351,6 +1351,10 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
     private void confirmPayment() {
         updateReviewPaymentView();
         reviewPaymentAlertDialog.show();
+        if (!appDelegate.suggestions.disabledShowFeeExplanationInfo()) {
+            TLPrompts.promptSuccessMessage(getActivity(), getString(R.string.transaction_fee), getString(R.string.transaction_fee_how));
+            appDelegate.suggestions.setDisableShowFeeExplanationInfo(true);
+        }
     }
 
     void showPromptPaymentSent(String txHash, String address, TLCoin amount) {

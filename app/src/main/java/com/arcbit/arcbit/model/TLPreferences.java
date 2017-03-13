@@ -63,6 +63,7 @@ public class TLPreferences {
     private static final String DISABLE_SUGGEST_DONT_ADD_falseRMAL_ADDRESS_TO_ADDRESS_BOOK  = "disableSuggestDontAddNormalAddressToAddressBook";
     private static final String DISABLE_SUGGEST_MANUALLY_SCAN_TRANSACTION_FOR_STEALTH_TX_INFO  = "disableShowManuallyScanTransactionForStealthTxInfo";
     private static final String DISABLE_SUGGEST_STEALTH_PAYMENT_DELAY_INFO  = "disableShowStealthPaymentDelayInfo";
+    private static final String DISABLE_SUGGEST_SHOW_FEE_EXPLANATION_INFO  = "disableShowFeeExplanationInfo";
     private static final String DISABLE_SUGGEST_STEALTH_PAYMENT_NOTE  = "disableShowStealthPaymentNote";
     private static final String DISABLE_SHOW_HIDDEN_OVERLAY_WARNING  = "disabledShowHiddenOverlayWarning";
     private static final String DISABLE_SHOW_IS_ROOTED_WARNING  = "disabledShowIsRootedWarning";
@@ -480,6 +481,14 @@ public class TLPreferences {
 
     public boolean setDisableShowStealthPaymentDelayInfo(boolean disabled) {
         return setKeyBool(context, DISABLE_SUGGEST_STEALTH_PAYMENT_DELAY_INFO, disabled);
+    }
+
+    public boolean disabledShowFeeExplanationInfo() {
+        return getKeyBool(context, DISABLE_SUGGEST_SHOW_FEE_EXPLANATION_INFO);
+    }
+
+    public boolean setDisableShowFeeExplanationInfo(boolean disabled) {
+        return setKeyBool(context, DISABLE_SUGGEST_SHOW_FEE_EXPLANATION_INFO, disabled);
     }
 
     public boolean disabledShowManuallyScanTransactionForStealthTxInfo() {

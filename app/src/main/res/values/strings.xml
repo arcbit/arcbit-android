@@ -298,7 +298,7 @@
     <string name="transaction_fee">Transaction Fee</string>
     <string name="transaction_id">Transaction ID</string>
     <string name="transaction_authorized">Transaction authorized</string>
-    <string name="transaction_fee_how">Transaction fees impact how quickly the Bitcoin mining network will confirm your transactions, and depend on the current network conditions.</string>
+    <string name="transaction_fee_how">Transaction fees impact how quickly the Bitcoin network will confirm your transactions. Higher fees means faster confirmation time. Default fee behavior can be configured in settings.</string>
     <string name="transaction_is_not_a_reusable_address_transaction">Transaction is not a reusable address transaction.</string>
     <string name="spending_from_a_cold_wallet_account_description">Transaction needs to be authorized by an offline and air gap device. Send transaction to an offline device for authorization?</string>
     <string name="transaction_authorized_next_step_description">Transaction needs to be passed back to your online device in order for the payment to be sent</string>

@@ -7,9 +7,6 @@ import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
-/**
- * Created by Administrator on 6/3/2016.
- */
 public class TLAnalytics {
     TLAppDelegate appDelegate;
 

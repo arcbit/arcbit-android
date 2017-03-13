@@ -80,6 +80,14 @@ public class TLSuggestions {
         return this.appDelegate.preferences.setDisableShowStealthPaymentDelayInfo(disabled);
     }
 
+    public boolean disabledShowFeeExplanationInfo() {
+        return this.appDelegate.preferences.disabledShowFeeExplanationInfo();
+    }
+
+    public boolean setDisableShowFeeExplanationInfo(boolean disabled) {
+        return this.appDelegate.preferences.setDisableShowFeeExplanationInfo(disabled);
+    }
+
     public boolean disabledShowManuallyScanTransactionForStealthTxInfo() {
         return this.appDelegate.preferences.disabledShowManuallyScanTransactionForStealthTxInfo();
     }
