@@ -299,7 +299,7 @@
 	<string name="transaction_fee">Comisión de transacción</string>
 	<string name="transaction_id">ID de transacción</string>
 	<string name="transaction_authorized">transacción autorizada</string>
-	<string name="transaction_fee_how">Las comisiones de transacción afectan la rapidez con que la red de Bitcoin confirmará sus transacciones. Las tarifas más altas significan un tiempo de confirmación más rápido. El comportamiento de pago predeterminado se puede configurar en la configuración.</string>
+	<string name="transaction_fee_how">Las comisiones de transacción afectan la rapidez con que la red de Bitcoin confirmará sus transacciones. Las tarifas más altas significan tiempos de confirmación más rápidos. El comportamiento de pago predeterminado se puede configurar en la configuración.</string>
 	<string name="transaction_is_not_a_reusable_address_transaction">La transacción no es una transacción dirección reutilizable.</string>
 	<string name="spending_from_a_cold_wallet_account_description">Transacción debe ser autorizada por un dispositivo fuera de línea y espacio de aire. Enviar a un dispositivo de transacción fuera de línea para la autorización?</string>
 	<string name="transaction_authorized_next_step_description">Transacción debe ser aprobada de nuevo a su dispositivo en línea para que el pago que se enviará</string>
