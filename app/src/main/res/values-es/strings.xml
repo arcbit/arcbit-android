@@ -237,6 +237,7 @@
 	<string name="password">Contraseña</string>
 	<string name="payment_index_colon">Índice de Pago:</string>
 	<string name="enter_current_pin">Por favor, introduzca el PIN actual.</string>
+	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Anote o memorice su contraseña de respaldo de la cartera.</string>
 	<string name="preferences">preferencias</string>
 	<string name="private_key_does_not_match_address">clave privada no coincide con la dirección</string>
 	<string name="private_key_missing">Privado clave que falta</string>
@@ -275,6 +276,7 @@
 	<string name="fixed_fee_amount">Conjunto fijo comisión</string>
 	<string name="set_transaction_fee_in">Establecer cuota de transacción en %1$s</string>
 	<string name="settings">ajustes</string>
+	<string name="show">Mostrar</string>
 	<string name="show_backup_passphrase">Mostrar contraseña de copia de seguridad</string>
 	<string name="funds_may_be_pending_confirmation">Algunos fondos pueden estar pendientes de confirmación y no se pueden gastar todavía. (Consulte su historial de la cuenta) cuenta solamente tiene un saldo gastable de %1$s</string>
 	<string name="spending_from_a_cold_wallet_account">Pasar de una cuenta de cartera fría</string>
@@ -322,6 +324,7 @@
 	<string name="view_in_web">Ver en la Web</string>
 	<string name="view_private_key_qr_code">Ver código QR clave privada</string>
 	<string name="wallet_backup_passphrase">Contraseña de copia de seguridad</string>
+	<string name="wallet_backup_passphrase_will_be_shown">Se mostrará la contraseña de copia de seguridad cartera</string>
 	<string name="warning">Advertencia</string>
 	<string name="start_using_the_app_now">Bienvenido a Arcbit, un usuario sólo controlado Bitcoin cartera. Comience a utilizar la aplicación ahora depositando sus bitcoins aquí.</string>
 	<string name="welcome">¡Bienvenido!</string>
@@ -329,8 +332,8 @@
 	<string name="within_an_hour_90_probability">Dentro de una hora (probabilidad del 90%)</string>
 	<string name="within_half_hour_90_probability">Dentro de media hora (90% de probabilidad)</string>
 	<string name="write_down_backup_passphrase_suggestion">Anotar o memorizar el 12 palabra frase de contraseña de copia de seguridad de la cartera que se puede encontrar en la configuración. Se necesita su contraseña de copia de seguridad de la cartera para recuperar sus bitcoins.</string>
-	<string name="passphrase_instructions_advanced">Anote la contraseña de 12 palabras abajo y manténgala segura. Puede restaurar los bitcoins de todas sus carteras (excluyendo las importaciones) con esta sola frase de contraseña. La passphrase también se conoce como semilla o mnemónica.</string>
-	<string name="passphrase_instructions">Anote la contraseña de 12 palabras abajo y manténgala segura. Puede restaurar los bitcoins de todas sus carpetas con esta frase de contraseña única. La passphrase también se conoce como semilla o mnemónica.</string>
+	<string name="passphrase_instructions_advanced">Anote la contraseña de 12 palabras abajo y manténgala segura. Esta frase de contraseña solo puede restaurar los bitcoins de todas sus carteras (excluyendo las importaciones).</string>
+	<string name="passphrase_instructions">Anote la contraseña de 12 palabras abajo y manténgala segura. Esta frase de contraseña solo puede restaurar los bitcoins de toda su cartera.</string>
 	<string name="yes">Sí</string>
 	<string name="send_to_reusable_address_warning">Usted está haciendo un pago a una dirección reutilizable. Asegúrese de que el receptor puede ver el pago hecho a ellos. (Todas las direcciones reutilizables Arcbit son compatibles con otras carteras ArcBit)</string>
 	<string name="more_funds_needed">Tienes %1$s, pero se necesita %2$s. (Esto incluye la cuota de transacciones)</string>

@@ -69,6 +69,9 @@ public class TLPreferences {
     private static final String DISABLE_SHOW_IS_ROOTED_WARNING  = "disabledShowIsRootedWarning";
     private static final String DISABLE_SHOW_LOW_ANDROID_VERSION_WARNING  = "disabledShowLowAndroidVersionWarning";
 
+    private static final String HAS_RECEIVED_PAYMENT_FOR_FIRST_TIME  = "hasReceivePaymentForFirstTime";
+    private static final String HAS_SHOWN_BACKUP_PASSPHRASE  = "hasShownBackupPassphrase";
+
 
     public TLPreferences(TLAppDelegate appDelegate) {
         this.appDelegate = appDelegate;
@@ -540,9 +543,21 @@ public class TLPreferences {
         return getKeyBool(context, DISABLE_SUGGEST_DONT_ADD_falseRMAL_ADDRESS_TO_ADDRESS_BOOK);
     }
 
+    public boolean setHasReceivePaymentForFirstTime(boolean received)  {
+        return setKeyBool(context, HAS_RECEIVED_PAYMENT_FOR_FIRST_TIME, received);
+    }
 
+    public boolean hasReceivePaymentForFirstTime() {
+        return getKeyBool(context, HAS_RECEIVED_PAYMENT_FOR_FIRST_TIME);
+    }
 
+    public boolean sethasShownBackupPassphrase(boolean hasShown)  {
+        return setKeyBool(context, HAS_SHOWN_BACKUP_PASSPHRASE, hasShown);
+    }
 
+    public boolean hasShownBackupPassphrase() {
+        return getKeyBool(context, HAS_SHOWN_BACKUP_PASSPHRASE);
+    }
 
 
     public String getValue(String name, String value) {

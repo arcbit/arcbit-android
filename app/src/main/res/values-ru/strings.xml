@@ -237,6 +237,7 @@
     <string name="password">пароль</string>
     <string name="payment_index_colon">Индекс оплаты:</string>
     <string name="enter_current_pin">Пожалуйста, введите текущий PIN-код.</string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Запишите или запомните кодовую фразу для резервного копирования кошелька.</string>
     <string name="preferences">предпочтения</string>
     <string name="private_key_does_not_match_address">Секретный ключ не совпадает адрес</string>
     <string name="private_key_missing">Секретный ключ отсутствует</string>
@@ -275,6 +276,7 @@
     <string name="fixed_fee_amount">Установить фиксированный сбор Сумма</string>
     <string name="set_transaction_fee_in">Установить Стоимость kомиссия в %1$s</string>
     <string name="settings">настройки</string>
+    <string name="show">Показывать</string>
     <string name="show_backup_passphrase">Показывать парольную фразу</string>
     <string name="funds_may_be_pending_confirmation">Некоторые средства могут быть в ожидании подтверждения и не могут быть потрачены еще. (Проверьте вашу историю счета) Счет имеет только расходуемого баланс %1$s</string>
     <string name="spending_from_a_cold_wallet_account">Тратить со счета холодного бумажника</string>
@@ -322,6 +324,7 @@
     <string name="view_in_web">Просмотр в Интернете</string>
     <string name="view_private_key_qr_code">Просмотр секретного ключа QR-код</string>
     <string name="wallet_backup_passphrase">Бумажник резервная ключевая фраза</string>
+    <string name="wallet_backup_passphrase_will_be_shown">Будут показаны кодовые фразы резервного копирования кошелька.</string>
     <string name="warning">Предупреждение</string>
     <string name="start_using_the_app_now">Добро пожаловать в ArcBit, управляемый пользователем биткойн-кошелек. Начните использовать приложение, разместив свои биткойны здесь.</string>
     <string name="welcome">Добро пожаловать!</string>
@@ -329,8 +332,8 @@
     <string name="within_an_hour_90_probability">В течение часа (вероятность 90%)</string>
     <string name="within_half_hour_90_probability">В течение получаса (вероятность 90%)</string>
     <string name="write_down_backup_passphrase_suggestion">Запишите или запомните кодовую фразу для резервного копирования в 12 слов, которую можно найти в настройках. Кодовая фраза резервного копирования вашего бумажника необходима для восстановления биткойнов.</string>
-    <string name="passphrase_instructions_advanced">Запишите 12-разрядную кодовую фразу ниже и сохраните ее. Вы можете восстановить биткойны вашего кошелька (без импорта) с помощью этой единственной кодовой фразы. Ключевая фраза также известна как семя или мнемоника.</string>
-    <string name="passphrase_instructions">Запишите 12-разрядную кодовую фразу ниже и сохраните ее. Вы можете восстановить биткойны вашего кошелька с помощью этой единственной кодовой фразы. Ключевая фраза также известна как семя или мнемоника.</string>
+    <string name="passphrase_instructions_advanced">Запишите 12-разрядную кодовую фразу ниже и сохраните ее. Только эта кодовая фраза может восстановить биткойны вашего кошелька (исключая импорт).</string>
+    <string name="passphrase_instructions">Запишите 12-разрядную кодовую фразу ниже и сохраните ее. Эта кодовая фраза сама по себе может восстановить биткойны вашего кошелька.</string>
     <string name="yes">да</string>
     <string name="send_to_reusable_address_warning">Вы делаете платеж многоразовый адрес. Убедитесь, что приемник может увидеть платеж, произведенный им. (Все многократно используемые адреса ArcBit совместимы с другими ArcBit кошельков)</string>
     <string name="more_funds_needed">У вас есть %1$s, но нужно %2$s. (Это включает в себя транзакционный сбор)</string>

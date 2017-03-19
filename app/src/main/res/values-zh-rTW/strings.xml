@@ -234,6 +234,7 @@
 	<string name="password">密碼</string>
 	<string name="payment_index_colon">付款指數：</string>
 	<string name="enter_current_pin">請輸入當前的PIN碼。</string>
+	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">請記下或記住您的錢包備份密碼。</string>
 	<string name="preferences">優先</string>
 	<string name="private_key_does_not_match_address">私密金鑰不匹配地址</string>
 	<string name="private_key_missing">私密金鑰缺失</string>
@@ -272,6 +273,7 @@
 	<string name="fixed_fee_amount">組固定費用金額</string>
 	<string name="set_transaction_fee_in">%1$s設定交易費</string>
 	<string name="settings">設置</string>
+	<string name="show">以顯示</string>
 	<string name="show_backup_passphrase">顯示備份密碼短語</string>
 	<string name="funds_may_be_pending_confirmation">一些基金可能正在申請確認，不能尚未度過。 （請檢查您的帳戶歷史記錄）賬戶僅有的%1$s的一個可支配餘額</string>
 	<string name="spending_from_a_cold_wallet_account">從寒冷的錢包帳戶支出</string>
@@ -319,6 +321,7 @@
 	<string name="view_in_web">鑑於網站</string>
 	<string name="view_private_key_qr_code">查看私密金鑰QR碼</string>
 	<string name="wallet_backup_passphrase">錢包備份密碼</string>
+	<string name="wallet_backup_passphrase_will_be_shown">將顯示電子錢包備份密碼</string>
 	<string name="warning">警告</string>
 	<string name="start_using_the_app_now">歡迎來到ArcBit，用戶只能控制比特幣錢包。現在開始使用應用程序通過存儲您的比特幣在這裡。</string>
 	<string name="welcome">歡迎！</string>
@@ -326,8 +329,8 @@
 	<string name="within_an_hour_90_probability">一小時內（90%概率）</string>
 	<string name="within_half_hour_90_probability">半小時內（90%概率）</string>
 	<string name="write_down_backup_passphrase_suggestion">寫下或記住你的12字錢包備份密碼，這可以在設置中找到。您的錢包備份密碼需要恢復您的比特幣。</string>
-	<string name="passphrase_instructions_advanced">記下下面的12字口令，並保持安全。您可以使用此單個密碼短語恢復整個錢包的比特幣（不包括導入）。密碼短語也稱為種子或助記符。</string>
-	<string name="passphrase_instructions">記下下面的12字口令，並保持安全。你可以用這個單一的密碼恢復你的整個錢包的比特幣。密碼短語也稱為種子或助記符。</string>
+	<string name="passphrase_instructions_advanced">記下下面的12字口令，並保持安全。這個密碼短語可以恢復你的整個錢包的比特幣（不包括進口）。</string>
+	<string name="passphrase_instructions">記下下面的12字口令，並保持安全。這個密碼短語可以恢復你的整個錢包的比特幣。</string>
 	<string name="yes">是</string>
 	<string name="send_to_reusable_address_warning">您正在向可重複使用的地址付款。確保接收方可以看到對他們的付款。（所有ArcBit可重用地址都與其他ArcBit錢包兼容）</string>
 	<string name="more_funds_needed">你有%1$s，但需要%2$s。（包括交易費用）</string>

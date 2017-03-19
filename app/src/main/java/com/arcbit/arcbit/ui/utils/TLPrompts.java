@@ -236,6 +236,24 @@ public class TLPrompts {
         alertDialog.show();
     }
 
+    public static void promptWithOneButton(Activity activity, String title, String message, String buttonText, PromptOKCallback promptOKCallback) {
+        final AlertDialog alertDialog = new AlertDialog.Builder(activity)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(buttonText, null)
+                .create();
+        alertDialog.setOnShowListener(dialog -> {
+
+            Button button = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            button.setOnClickListener(view -> {
+                alertDialog.dismiss();
+                promptOKCallback.onSuccess();
+            });
+        });
+        alertDialog.show();
+    }
+
     public static void promptForEncryptedPrivKeyPassword(Activity activity, String encryptedPrivKey, boolean isTestnet, PromptCallback promptCallback) {
         promptForInputSaveCancel(activity, activity.getString(R.string.enter_password_for_encrypted_private_key), "", activity.getString(R.string.password),
                 activity.getString(R.string.ok_capitalize), activity.getString(R.string.cancel), "", InputType.TYPE_CLASS_TEXT, new PromptCallback() {

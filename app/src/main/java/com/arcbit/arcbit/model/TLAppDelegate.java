@@ -317,6 +317,9 @@ public class TLAppDelegate {
         this.preferences.setSendFromIndex(0);
         //this.preferences.setAdvancedMode(true);
 
+        this.preferences.setHasReceivePaymentForFirstTime(false);
+        this.preferences.sethasShownBackupPassphrase(false);
+
         if (clearWalletInMemory) {
             String masterHex = TLHDWalletWrapper.getMasterHex(passphrase);
             this.appWallet.createInitialWalletPayload(passphrase, masterHex);

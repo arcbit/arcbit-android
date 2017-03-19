@@ -413,7 +413,22 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                             appDelegate.preferences.setDisabledPromptShowTryColdWallet(true);
                         }
                     });
+        } else if (appDelegate != null && appDelegate.receiveSelectedObject != null &&
+                appDelegate.receiveSelectedObject.getBalanceForSelectedObject().greater(TLCoin.zero()) &&
+                !appDelegate.preferences.hasShownBackupPassphrase()) {
+            this.showPromptThenPassphraseActivity();
         }
+    }
+
+    void showPromptThenPassphraseActivity() {
+        TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                    @Override
+                    public void onSuccess() {
+                        Intent intent = new Intent(getActivity(), PassphraseActivity.class);
+                        startActivity(intent);
+                    }
+                });
     }
 
     private void setupToolbar() {

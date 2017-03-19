@@ -62,6 +62,10 @@ public class PassphraseActivity extends Activity {
             masterSeedHexTextView.setVisibility(View.VISIBLE);
             masterSeedHexTextView.setText(TLHDWalletWrapper.getMasterHex(passphrase));
         }
+
+        if (!appDelegate.preferences.hasShownBackupPassphrase()) {
+            appDelegate.preferences.sethasShownBackupPassphrase(true);
+        }
     }
 
     @Override

@@ -24,6 +24,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.arcbit.arcbit.model.TLCallback;
+import com.arcbit.arcbit.model.TLEncryptedPreferences;
+import com.arcbit.arcbit.model.TLKeyStore;
 import com.arcbit.arcbit.model.TLNotificationEvents;
 import com.arcbit.arcbit.ui.utils.TLPrompts;
 import com.arcbit.arcbit.ui.utils.TLToast;
@@ -110,6 +112,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 new IntentFilter(TLNotificationEvents.EVENT_TOGGLED_COLD_WALLET));
 
         TLAppUtil.getInstance(MainActivity.this).applyPRNGFixes();
+
+
+        boolean showPassphraseOnly = false;
+        //boolean showPassphraseOnly = true;
+        if (showPassphraseOnly) {
+            TLAppDelegate.instance(MainActivity.this).initAppDelegate();
+            TLAppDelegate.instance().keyStore = new TLKeyStore(TLAppDelegate.instance());
+            TLAppDelegate.instance().encryptedPreferences = new TLEncryptedPreferences(TLAppDelegate.instance());
+            final android.support.v4.app.Fragment fragment = new ColdWalletFragment();
+            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            Intent intent = new Intent(MainActivity.this, PassphraseActivity.class);
+            startActivity(intent);
+            return;
+        }
+
 
         this.initModel();
         if (!TLAppDelegate.instance().preferences.hasSetupHDWallet()) {

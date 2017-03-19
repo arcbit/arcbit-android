@@ -25,6 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.arcbit.arcbit.model.TLCoin;
 import com.arcbit.arcbit.model.TLKeyStore;
 import com.arcbit.arcbit.ui.utils.TLPageQRCodeFragment;
 import com.arcbit.arcbit.ui.utils.TLPrompts;
@@ -83,6 +84,10 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
                 updateViewToNewSelectedObject();
             } else if (action.equals(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_UNCONFIRMED_TRANSACTION)) {
                 updateViewToNewSelectedObject();
+                if (!appDelegate.preferences.hasReceivePaymentForFirstTime() && !appDelegate.preferences.hasShownBackupPassphrase()) {
+                    showPromptThenPassphraseActivity();
+                }
+                appDelegate.preferences.setHasReceivePaymentForFirstTime(true);
             } else if (action.equals(TLNotificationEvents.EVENT_DISPLAY_LOCAL_CURRENCY_TOGGLED)) {
                 updateViewToNewSelectedObject();
             } else if (action.equals(TLNotificationEvents.EVENT_FETCHED_ADDRESSES_DATA)) {
@@ -119,15 +124,15 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getActivity().setTitle(getString(R.string.receive));
 
-        dotsLinearLayout = (LinearLayout)rootView.findViewById(R.id.ll_indicator);
-        balanceSpinner = (ProgressBar)rootView.findViewById(R.id.balanceProgressBar);
+        dotsLinearLayout = (LinearLayout) rootView.findViewById(R.id.ll_indicator);
+        balanceSpinner = (ProgressBar) rootView.findViewById(R.id.balanceProgressBar);
         balanceSpinner.setVisibility(View.GONE);
 
-        sendNavButton = (ImageButton)rootView.findViewById(R.id.but_send);
+        sendNavButton = (ImageButton) rootView.findViewById(R.id.but_send);
         sendNavButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                android.support.v4.app.Fragment fragment= new SendFragment();
+                android.support.v4.app.Fragment fragment = new SendFragment();
                 android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit();
             }
@@ -138,15 +143,15 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
 
         mIndicator = (CirclePageIndicator) rootView.findViewById(R.id.indicator);
 
-        imageButtonSelectAccount = (ImageButton)rootView.findViewById(R.id.selectAccountArrow);
+        imageButtonSelectAccount = (ImageButton) rootView.findViewById(R.id.selectAccountArrow);
         imageButtonSelectAccount.setOnClickListener(this);
 
-        layoutAccount = (RelativeLayout)rootView.findViewById(R.id.layoutAccount);
+        layoutAccount = (RelativeLayout) rootView.findViewById(R.id.layoutAccount);
         layoutAccount.setOnClickListener(this);
 
 
-        accountNameTextView = (TextView)rootView.findViewById(R.id.account_name);
-        accountBalanceTextView = (TextView)rootView.findViewById(R.id.account_balance);
+        accountNameTextView = (TextView) rootView.findViewById(R.id.account_name);
+        accountBalanceTextView = (TextView) rootView.findViewById(R.id.account_balance);
 
         if (!((MainActivity) getActivity()).initializedAppAndLoadedWallet) {
             ((MainActivity) getActivity()).initAppAndLoadWallet(new TLCallback() {
@@ -178,7 +183,7 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
         this.refreshSelectedAccount(false);
         LocalBroadcastManager.getInstance(this.appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_RECEIVE_SCREEN));
 
-        if (TLRootUtil.getInstance().isDeviceRooted() && !appDelegate.suggestions.disabledShowIsRootedWarning())  {
+        if (TLRootUtil.getInstance().isDeviceRooted() && !appDelegate.suggestions.disabledShowIsRootedWarning()) {
             AlertDialog rootedAlertDialog;
             final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             builder.setMessage(getString(R.string.device_rooted_description))
@@ -194,6 +199,10 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
             appDelegate.suggestions.promptToSuggestBackUpWalletPassphrase(getActivity());
         } else if (!appDelegate.suggestions.disabledShowLowAndroidVersionWarning() && !TLKeyStore.canUseKeyStore()) {
             appDelegate.suggestions.promptToShowLowAndroidVersionWarning(getActivity());
+        } else if (appDelegate != null && appDelegate.receiveSelectedObject != null &&
+                appDelegate.receiveSelectedObject.getBalanceForSelectedObject().greater(TLCoin.zero()) &&
+                !appDelegate.preferences.hasShownBackupPassphrase()) {
+            this.showPromptThenPassphraseActivity();
         }
 
         this.updateViewToNewSelectedObject();
@@ -201,6 +210,17 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
             appDelegate.justSetupHDWallet = false;
             TLPrompts.promptSuccessMessage(getActivity(), getString(R.string.welcome), getString(R.string.start_using_the_app_now));
         }
+    }
+
+    void showPromptThenPassphraseActivity() {
+        TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                    @Override
+                    public void onSuccess() {
+                        Intent intent = new Intent(getActivity(), PassphraseActivity.class);
+                        startActivity(intent);
+                    }
+                });
     }
 
     private void setupToolbar() {
