@@ -84,7 +84,6 @@ public class TLExchangeRate {
 
     public TLCoin bitcoinAmountFromFiat(String currency, double fiatAmount) {
         double exchangeRate = getExchangeRate(currency);
-        exchangeRate = 571.67;
         return new TLCoin((long)(fiatAmount/exchangeRate*100000000));
     }
 
