@@ -995,7 +995,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                 String accountName = (String) obj;
                 TLAccountObject accountObject = appDelegate.accounts.createNewAccount(accountName, TLWalletJSONKeys.TLAccount.Normal);
                 if (accountName.length() == 0) {
-                    accountObject.renameAccount(getString(R.string.account_number, (accountObject.getAccountIdxNumber()+1)));
+                    appDelegate.accounts.renameAccount(accountObject.getAccountIdxNumber(), getString(R.string.account_number, (accountObject.getAccountIdxNumber()+1)));
                 }
                 //if account has been used then balance will be wrong, np because this only can happen in testing when starting a new wallet with used passphraser
                 accountObject.setFetchedAccountData(true);
@@ -1122,7 +1122,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                                 TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.rename_account), "", getString(R.string.name), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                                     @Override
                                     public void onSuccess(Object obj) {
-                                        accountObject.renameAccount((String)obj);
+                                        appDelegate.accounts.renameAccount(accountObject.getAccountIdxNumber(), (String)obj);
                                         manageAccountAdapter.notifyDataSetChanged();
                                     }
 
@@ -1215,7 +1215,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                                 TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.rename_account), "", getString(R.string.name), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                                     @Override
                                     public void onSuccess(Object obj) {
-                                        accountObject.renameAccount((String)obj);
+                                        appDelegate.importedAccounts.renameAccount(accountObject.getAccountIdxNumber(), (String)obj);
                                         manageAccountAdapter.notifyDataSetChanged();
                                     }
 
