@@ -156,6 +156,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                 finishSend(txHash);
             } else if (action.equals(TLNotificationEvents.EVENT_CLICKED_USE_ALL_FUNDS)) {
                 checkToFetchUTXOsAndDynamicFeesAndFillAmountFieldWithWholeBalance();
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                updateAccountBalanceView();
             }
         }
     };
@@ -331,6 +333,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                 new IntentFilter(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_UNCONFIRMED_TRANSACTION));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_CLICKED_USE_ALL_FUNDS));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
 
         if (!((MainActivity) getActivity()).initializedAppAndLoadedWallet) {

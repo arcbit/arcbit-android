@@ -64,6 +64,10 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
                 if (selectAccountAdapter != null) {
                     selectAccountAdapter.notifyDataSetChanged();
                 }
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                if (selectAccountAdapter != null) {
+                    selectAccountAdapter.notifyDataSetChanged();
+                }
             }
         }
     };
@@ -86,6 +90,8 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
                 new IntentFilter(TLNotificationEvents.EVENT_ADVANCE_MODE_TOGGLED));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_UNCONFIRMED_TRANSACTION));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
         selectAccountListview = (ListView) rootView.findViewById(R.id.select_account_list_view);
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);

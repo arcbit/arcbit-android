@@ -3,8 +3,10 @@ package com.arcbit.arcbit.ui;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -51,10 +53,24 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
     private int rowCount;
     private TLWalletJSONKeys.TLAddressType selectedAddressType;
     private String selectedAddress;
+    private AddressListAdapter addressListAdapter;
 
     private enum CellType {
         CellTypeNone, CellTypePaymentAddress, CellTypeMainActiveAddress, CellTypeMainArchivedAddress, CellTypeChangeActiveAddress, CellTypeChangeArchivedAddress;
     }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                if (addressListAdapter != null) {
+                    addressListAdapter.notifyDataSetChanged();
+                }
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,8 +80,9 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
             return rootView;
         }
 
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
         LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_ACCOUNT_ADDRESSES));
-
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -246,11 +263,11 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         } else {
             rowCount += accountObject.getChangeArchivedAddressesCount();
         }
-        AddressListAdapter adapter = new AddressListAdapter(rootView.getContext());
+        addressListAdapter = new AddressListAdapter(rootView.getContext());
 
         addressListview = (ListView) rootView.findViewById(R.id.address_list_view);
 
-        addressListview.setAdapter(adapter);
+        addressListview.setAdapter(addressListAdapter);
     }
 
     private class AddressListAdapter extends ArrayAdapter<Item> {
@@ -640,5 +657,13 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         }
         TLPrompts.promptQRCodeDialogCopyToClipboard(getActivity(), privateKey);
         LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_ACCOUNT_PRIVATE_KEY));
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (appDelegate != null) {
+            LocalBroadcastManager.getInstance(appDelegate.context).unregisterReceiver(receiver);
+        }
     }
 }

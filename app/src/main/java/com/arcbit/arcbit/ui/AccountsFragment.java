@@ -119,6 +119,10 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                 if (manageAccountAdapter != null) {
                     manageAccountAdapter.notifyDataSetChanged();
                 }
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                if (manageAccountAdapter != null) {
+                    manageAccountAdapter.notifyDataSetChanged();
+                }
             }
         }
     };
@@ -146,6 +150,8 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                 new IntentFilter(TLNotificationEvents.EVENT_PREFERENCES_BITCOIN_DISPLAY_CHANGED));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_PREFERENCES_FIAT_DISPLAY_CHANGED));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
         manageAccountListview = (ListView) rootView.findViewById(R.id.account_list_view);
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);

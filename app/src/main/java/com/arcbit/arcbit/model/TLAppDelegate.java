@@ -856,7 +856,16 @@ public class TLAppDelegate {
         assert(this.accounts.getNumberOfAccounts() > 0);
 
         exchangeRate = new TLExchangeRate();
-        exchangeRate.getExchangeRates();
+        exchangeRate.getExchangeRates(new TLCallback() {
+            @Override
+            public void onSuccess(Object obj) {
+                LocalBroadcastManager.getInstance(context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
+            }
+
+            @Override
+            public void onFail(Integer status, String error) {
+            }
+        });
         TLAchievements.instance();
 
         Handler handler = new Handler(Looper.getMainLooper()) {

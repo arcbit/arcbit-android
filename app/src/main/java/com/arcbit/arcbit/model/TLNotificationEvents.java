@@ -12,6 +12,7 @@ public class TLNotificationEvents {
     public static final String EVENT_FETCHED_ADDRESSES_DATA = "api.multiaddress";
     public static final String EVENT_TRANSACTION_LISTENER_OPEN = "api.transaction.listener.open";
     public static final String EVENT_TRANSACTION_LISTENER_CLOSE = "api.transaction.listener.close";
+    public static final String EVENT_EXCHANGE_RATE_UPDATED = "api.updated.exchangerate";
     public static final String EVENT_MODEL_UPDATED_NEW_UNCONFIRMED_TRANSACTION = "model.updated.newunconfirmedtx";
     public static final String EVENT_MODEL_UPDATED_NEW_BLOCK = "model.updated.newblock";
     public static final String EVENT_UPDATED_RECEIVING_ADDRESSES = "app.updatedreceivingaddresses";

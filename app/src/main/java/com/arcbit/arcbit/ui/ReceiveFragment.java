@@ -94,6 +94,8 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
                 updateViewToNewSelectedObject();
             } else if (action.equals(TLNotificationEvents.EVENT_CLICKED_REFRESH_BALANCE)) {
                 refreshSelectedAccount(true);
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                updateAccountBalance();
             }
         }
     };
@@ -120,6 +122,8 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
                 new IntentFilter(TLNotificationEvents.EVENT_PREFERENCES_FIAT_DISPLAY_CHANGED));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_CLICKED_REFRESH_BALANCE));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getActivity().setTitle(getString(R.string.receive));
