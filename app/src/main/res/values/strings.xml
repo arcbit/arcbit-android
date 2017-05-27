@@ -238,6 +238,7 @@
     <string name="payment_index_colon">Payment Index:</string>
     <string name="enter_current_pin">Please enter current PIN.</string>
     <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Please write down or memorize your wallet backup passphrase.</string>
+    <string name="preferences">preferences</string>
     <string name="private_key_does_not_match_address">Private key does not match address</string>
     <string name="private_key_missing">Private key missing</string>
     <string name="qr_code">QR code</string>
