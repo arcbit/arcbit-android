@@ -110,11 +110,15 @@ public class TLStealthWebSocketHandler {
     }
 
     private void startPingTimer() {
+        if(pingTimer != null) {
+            pingTimer.cancel();
+        }
         pingTimer = new Timer();
         pingTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 if (webSocketConnection != null) {
+                    pingTimer = null;
                     if (webSocketConnection.isOpen()) {
                         pingPongSuccess = false;
                         sendPing();
