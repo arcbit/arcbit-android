@@ -30,6 +30,7 @@ public class TLTransactionWebSocketHandler {
     private Timer pingTimer = null;
     private boolean pingPongSuccess = false;
     private Messenger messageHandler;
+    private boolean timerPurged = true;
 
     public TLTransactionWebSocketHandler(Messenger messageHandler) {
         this.messageHandler = messageHandler;
@@ -96,30 +97,51 @@ public class TLTransactionWebSocketHandler {
         }
     }
 
-    private void startPingTimer() {
-        if(pingTimer != null) {
-            pingTimer.cancel();
-        }
-        pingTimer = new Timer();
-        pingTimer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (webSocketConnection != null) {
-                    pingTimer = null;
-                    if (webSocketConnection.isOpen()) {
-                        pingPongSuccess = false;
-                        webSocketConnection.sendPing();
-                        startPongTimer();
-                    } else {
-                        start();
-                    }
+    private class TransactionWebSocketPingTimerTask extends TimerTask {
+        private volatile Thread thread;
+
+        @Override
+        public void run() {
+            thread = Thread.currentThread();
+            if (webSocketConnection != null) {
+                if (webSocketConnection.isOpen()) {
+                    pingPongSuccess = false;
+                    webSocketConnection.sendPing();
+                    startPongTimer();
+                } else {
+                    start();
                 }
             }
-        }, pingInterval, pingInterval);
+        }
+
+        public boolean cancel(){
+            Thread thread = this.thread;
+            if(thread != null){
+                this.thread.interrupt();
+                this.thread = null;
+            }
+            return super.cancel();
+        }
+    }
+
+    private void startPingTimer() {
+        if(!timerPurged){
+            pingTimer.cancel();
+            pingTimer.purge();
+        }
+
+        pingTimer = new Timer();
+        pingTimer.scheduleAtFixedRate(new TransactionWebSocketPingTimerTask(), pingInterval, pingInterval);
+        timerPurged = false;
     }
 
     private void stopPingTimer() {
-        if (pingTimer != null) pingTimer.cancel();
+        if (pingTimer != null){
+            pingTimer.cancel();
+            pingTimer.purge();
+            timerPurged = true;
+        }
+        pingTimer = null;
     }
 
     private void startPongTimer() {
