@@ -136,6 +136,9 @@ public class SelectAccountFragment extends android.support.v4.app.Fragment {
     }
 
     void updateListView() {
+        if (appDelegate.accounts == null) {
+            return;
+        }
         rowCount = 0;
 
         if (appDelegate.accounts.getNumberOfAccounts() > 0) {
