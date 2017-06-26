@@ -144,7 +144,7 @@ public class TLImportedAddresses {
         TLImportedAddress importedAddressObject = new TLImportedAddress(this.appDelegate, appWallet, importedPrivateKeyDict);
         this.importedAddresses.add(importedAddressObject);
 
-        importedAddressObject.setPositionInWalletArray(this.importedAddresses.size() - 1);
+        importedAddressObject.setPositionInWalletArray(this.importedAddresses.size() + this.archivedImportedAddresses.size() - 1);
         this.addressToPositionInWalletArrayDict.put(importedAddressObject.getPositionInWalletArrayNumber(), importedAddressObject);
 
         String address = TLBitcoinjWrapper.getAddress(privateKey, this.appWallet.walletConfig.isTestnet);
@@ -157,7 +157,7 @@ public class TLImportedAddresses {
 
         indexes.remove(new Integer(this.importedAddresses.size()-1));
 
-        setLabel(importedAddressObject.getDefaultAddressLabel(), this.importedAddresses.size()-1);
+        setLabel(importedAddressObject.getDefaultAddressLabel(), importedAddressObject.getPositionInWalletArray());
 
         return importedAddressObject;
     }
@@ -167,7 +167,7 @@ public class TLImportedAddresses {
         TLImportedAddress importedAddressObject = new TLImportedAddress(this.appDelegate, this.appWallet, importedDict);
         this.importedAddresses.add(importedAddressObject);
 
-        importedAddressObject.setPositionInWalletArray(this.importedAddresses.size() - 1);
+        importedAddressObject.setPositionInWalletArray(this.importedAddresses.size() + this.archivedImportedAddresses.size() - 1);
         this.addressToPositionInWalletArrayDict.put(importedAddressObject.getPositionInWalletArrayNumber(), importedAddressObject);
 
         List<Integer> indexes = this.addressToIdxDict.get(address);
@@ -178,16 +178,19 @@ public class TLImportedAddresses {
 
         indexes.add(this.importedAddresses.size()-1);
 
-        setLabel(importedAddressObject.getDefaultAddressLabel(), this.importedAddresses.size()-1);
+        setLabel(importedAddressObject.getDefaultAddressLabel(), importedAddressObject.getPositionInWalletArray());
 
         return importedAddressObject;
     }
 
     public boolean setLabel(String label, int positionInWalletArray) {
         TLImportedAddress importedAddressObject = this.addressToPositionInWalletArrayDict.get(positionInWalletArray);
+        StringBuilder stringBuilder = new StringBuilder();
+                for (StackTraceElement element : Thread.currentThread().getStackTrace()) stringBuilder.append(element.toString()).append("\n");
 
         importedAddressObject.setLabel(label);
         if (this.accountAddressType == TLAccountAddressType.Imported) {
+
             this.appWallet.setImportedPrivateKeyLabel(label, positionInWalletArray);
         } else if (this.accountAddressType == TLAccountAddressType.ImportedWatch) {
             this.appWallet.setWatchOnlyAddressLabel(label, positionInWalletArray);
