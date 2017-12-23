@@ -30,21 +30,21 @@
     <string name="amount">Сумма</string>
     <string name="amount_colon">Сумма:</string>
     <string name="android_support">Поддержка Андроид</string>
-    <string name="screen_overlay_description">Приложения, которые используют наложения экрана, могут обманывать пользователей наж на невидимые кнопки и есть угроза что Ваши средства могут быть украндены. Это предупреждение может быть вызвано приложениями для затемнения экрана. Если Вы уверены, что нет никакой угрозы, то можете продолжить.</string>
+    <string name="screen_overlay_description">Приложения, которые используют наложения экрана, могут обманывать пользователей нажимая на невидимые кнопки, и есть угроза что Ваши средства могут быть украндены. Это предупреждение может быть вызвано приложениями для затемнения экрана. Если Вы уверены, что нет никакой угрозы, то можете продолжить.</string>
     <string name="app_name">ArcBit</string>
     <string name="cannot_use_app_on_this_device">ArcBit кошелек не может быть запущен на этом устройстве.</string>
-    <string name="arcbit_brain_wallet">Arcbit мыслекошелек</string>
+    <string name="arcbit_brain_wallet">Arcbit мысли кошелек</string>
     <string name="arcbit_web_wallet">Arcbit Веб-кошелек</string>
     <string name="arcbit_ios_wallet">Arcbit iOS Кошелек</string>
     <string name="archive_account">Архивировать учетную запись</string>
     <string name="archive_address">Архивировать адрес</string>
     <string name="archived_accounts">Заархивированная учетная запись</string>
-    <string name="archived_change_addresses">Заархивированный изменяемый адрес</string>
+    <string name="archived_change_addresses">Заархивированный адрес для сдачи</string>
     <string name="archived_cold_wallet_accounts">Заархивированные учетные записи холодного кошелька</string>
     <string name="archived_imported_accounts">Заархивированные импортированные учетные записи</string>
     <string name="archived_imported_addresses">Заархивированные импортированные адреса</string>
     <string name="archived_imported_watch_accounts">Заархивированная импортированная учетная запись для просмотра</string>
-    <string name="archived_imported_watch_addresses">Заархивированные импортированные адреса для просмотра </string>
+    <string name="archived_imported_watch_addresses">Заархивированные импортированные адреса для просмотра</string>
     <string name="archived_main_addresses">Заархивированные основные адреса</string>
     <string name="are_you_sure_you_want_to_archive_account">Вы уверены, что хотите заархивировать учетную запись %1$s?</string>
     <string name="are_you_sure_you_want_to_archive_address">Вы уверены, что хотите заархивировать адреса %1$s?</string>
@@ -54,9 +54,9 @@
     <string name="as_fast_as_possible">Так быстро, как только это возможно</string>
     <string name="authorize_cold_wallet_account_payment">Авторизовать платеж учетной записи холодного кошелька</string>
     <string name="authorize_payment">Разрешить оплату</string>
-    <string name="average_15_minutes">В среднем 15 минут</string>
-    <string name="average_30_minutes">В среднем 30 минут</string>
-    <string name="average_60_minutes">В среднем 60 минут</string>
+    <string name="average_15_minutes">15 минут</string>
+    <string name="average_30_minutes">30 минут</string>
+    <string name="average_60_minutes">60 минут</string>
     <string name="back_up_wallet">Сохранить кошелек</string>
     <string name="backup_passphrase_colon">Восстановительная фраза-пароль:</string>
     <string name="backup_wallet">Резервная копия кошелька</string>
@@ -72,7 +72,7 @@
     <string name="cannot_create_transactions_with_outputs_less_then">Невозможно создать транзакции с неизрасходованными средствами, менее чем %1$s</string>
     <string name="cannot_import_reusable_address">Невозможно импортировать многоразовый адрес</string>
     <string name="no_internet_connection_description">Не удается получить подключение к Интернету. Пожалуйста, проверьте подключение на Вашем устройстве и попробуйте еще раз.</string>
-    <string name="cannot_select_custom_url_for_this_block_explorer">Не удается выбрать пользовательский URL для этогоблок-проводника</string>
+    <string name="cannot_select_custom_url_for_this_block_explorer">Не удается выбрать пользовательский URL для этого блок-проводника</string>
     <string name="change_address_id_colon_number">Изменить ID адреса %1$d:</string>
     <string name="change_pin_code">Изменить PIN</string>
     <string name="change_address_id_colon">Изменить ID адреса:</string>
@@ -84,7 +84,7 @@
     <string name="checking_transaction">Проверка транзакции</string>
     <string name="clear_account_private_key_from_memory">Очистить закрытый ключ учетной записи из памяти</string>
     <string name="clear_private_key_from_memory">Очистить закрытый ключ из памяти</string>
-    <string name="cleared_from_memory">Очищено из памяти</string>
+    <string name="cleared_from_memory">Удалено из памяти</string>
     <string name="cold_wallet">Холодный Кошелек</string>
     <string name="cold_wallet_accounts">Учетные записи Холодного Кошелька</string>
     <string name="reusable_address_cold_wallet_account_explanation">
@@ -119,7 +119,7 @@
     <string name="ask_to_restore_wallet">Вы хотите восстановить с помощью восстановительной фразы-пароля или начать новый кошелек?</string>
     <string name="ask_import_your_account_private_key">Вы хотите временно импортировать закрытый ключ Вашей учетной записи?</string>
     <string name="ask_import_your_private_key">Вы хотите временно импортировать открытый ключ Вашей учетной записи?</string>
-    <string name="dont_remind_me">Не напоминайте мне больше</string>
+    <string name="dont_remind_me">Больше не напоминать</string>
     <string name="done">Готово</string>
     <string name="drawer_close">Закрытие</string>
     <string name="drawer_open">Открытие</string>
@@ -134,7 +134,7 @@
     <string name="enable_advanced_mode">Активировать расширенный режим</string>
     <string name="enable_cold_wallet">Активировать холодный кошелек </string>
     <string name="enable_advanced_mode_description">Активирование расширенного режима откроет скрытые функции, в том числе возможность импорта закрытых ключей и адресов биткоинов. Обратите внимание, что восстановительная фраза-пароль не может восстановить Ваши закрытые ключи и адреса биткоинов, поэтому их необходимо сохранять отдельно. Чтобы просмотреть список всех дополнительных функций, включите расширенный режим и перейдите в раздел «Помощь».</string>
-    <string name="enable_default_reusable_address_description">Включение адресов повторного использования по умолчанию выведет все адреса повторного использования напротив списка получателей на экране приема.</string>
+    <string name="enable_default_reusable_address_description">Включение многоразовых адресов по умолчанию отобразит все многоразовые адреса напротив списка получателей на экране приема.</string>
     <string name="enable_cold_wallet_description">Включение функции холодного кошелька позволит Вам создавать учетные записи, которые обеспечивают лучшую безопасность, чем обычные онлайн-кошельки. Для использования этой функции Вам понадобятся 2 устройства. Ваше обычное ежедневное устройство, подключенное к Интернету, и другое устройство, которое не подключено к Интернету. Вы можете найти функцию холодного кошелька в боковом меню.</string>
     <string name="encrypted">Зашифровано</string>
     <string name="enter_label">Введите метку</string>
@@ -158,8 +158,8 @@
     <string name="from_colon">От:</string>
     <string name="funds_have_been_claimed_already">Средства уже были заявлены.</string>
     <string name="funds_imported">Средства импортированы</string>
-    <string name="high_fee_not_necessary">Высокая комиссия не обязательная.</string>
     <string name="history">История</string>
+    <string name="i_understand">я понимаю</string>
     <string name="id_colon">ID: %1$s</string>
     <string name="import_account">Импорт учетной записи</string>
     <string name="import_address">Импорт адреса</string>
@@ -183,7 +183,7 @@
     <string name="importing_account">Импорт учетной записи</string>
     <string name="importing_cold_wallet_account">Импорт учетной записи холодного кошелька</string>
     <string name="importing_watch_account">Импорт учетной записи для просмотра</string>
-    <string name="import_private_key_encrypted_or_unencrypted_description">Импортирование  зашифрованого ключа потребует ввода пароля каждый раз, когда Вы хотите отправить деньги.</string>
+    <string name="import_private_key_encrypted_or_unencrypted_description">Импортирование зашифрованого ключа потребует ввода пароля каждый раз, когда Вы хотите отправить деньги.</string>
     <string name="incomplete">Не завершено</string>
     <string name="input_account_private_key">Введите закрытый ключ учетной записи</string>
     <string name="input_account_public_key">Введите открытый ключ учетной записи</string>
@@ -193,7 +193,7 @@
     <string name="input_contact_name_for_address">Введите имя контакта для адреса</string>
     <string name="input_12_word_backup_passphrase_info">Введите ключевую фразу-пароль из 12 слов, принадлежащую учетной записи холодного кошелька, из которого Вы хотите произвести платеж. Это ключевая фраза-пароль, которая использовалась для создания открытого ключа Вашей учетной записи, который был создан в разделе «Создать холодный кошелек» на предыдущем экране.
 </string>
-    <string name="insufficient_funds_account_balance">Недостаточно средств. Баланс учетной записи %1$s в то время как необходимы %2$s .</string>
+    <string name="insufficient_funds_account_balance">Недостаточно средств. Баланс учетной записи %1$s в то время как необходимы %2$s.</string>
     <string name="insufficient_funds_dust">Недостаточно средств. Учетная запись содержит биткоиновую “пыль”. Вы можете отправлять только до %1$s.</string>
     <string name="insufficient_funds">Недостаточно средств</string>
     <string name="internal_wallet_data">Данные внутреннего кошелька</string>
@@ -217,7 +217,6 @@
     <string name="label_transaction">Метка транзакции</string>
     <string name="like_using_arcbit">Нравится ли Вам использовать ArcBit?</string>
     <string name="local_currency">Местная валюта</string>
-    <string name="low_fee_not_recommended">Низкая комиссия не рекомендуема</string>
     <string name="master_seed_hex">Основной сид</string>
     <string name="maximum_accounts_reached">Достигнуто максимальное количество учетных записей</string>
     <string name="mnemonic">Мнемонический</string>
@@ -243,7 +242,7 @@
     <string name="password">Пароль</string>
     <string name="payment_index_colon">Индекс платежа:</string>
     <string name="enter_current_pin">Пожалуйста, введите текущий PIN.</string>
-    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Пожалуйста, запишите или запомните Вашу восстановительную фразу-пароль.</string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Запишите или запишите свою кодовую фразу. Если вы потеряете ключевую фразу для резервного копирования, ваш кошелек не может быть восстановлен. Резервное копирование можно выполнить позже. Кодовая фраза для резервного копирования всегда может быть найдена в настройках.</string>
     <string name="preferences">Предпочтения</string>
     <string name="private_key_does_not_match_address">Закрытый ключ не соответствует адресу</string>
     <string name="private_key_missing">Не хватает закрытого ключа</string>
@@ -298,7 +297,7 @@
     <string name="cold_wallet_overview_description">Функция «холодного кошелька» позволит Вам создавать учетные записи, которые обеспечивают лучшую безопасность, чем обычные онлайн-кошельки. Для использования этой функции Вам понадобятся 2 устройства. Ваше обычное ежедневное устройство, подключенное к Интернету, и второе устройство, которое не подключено к Интернету (для загрузки приложения ArcBit необходимо единожды подключиться к Интернету, а затем отключить устройство в оффлайн режим для максимальной безопасности). Эта функция позволяет Вам авторизовывать биткоин-платежи с оффлайн устройства, так что Ваши ключи от биткоинов не будут храниться на Вашем онлайн-устройстве. Следуйте пошаговым инструкциям, кликая на информационные кнопки в нижеследующих разделах.</string>
     <string name="master_seed_hex_description">Главный сид происходит от кодовой фразы-пароля. Если Вы хотите импортировать биткоины в другой кошелек, и если эти другие кошельки не используют BIP39, тогда можно импортировать биткоины с использованием шестнадцатеричного исходного сида, если они поддерживают BIP44.</string>
     <string name="this_account_type_cant_see_reusable_address_payments">Данный тип учетной записи не может просматривать платежи на многоразовые адреса</string>
-    <string name="scan_payment_txid_description">Эта функция позволяет вам вручную ввести ID транзакции и посмотреть, содержит ли соответствующая транзакция платеж на ваш адрес многоразового использования. Если это так, то средства будут добавлены в ваш кошелек. Обычно приложение автоматически обнаруживает переадресацию платежей, но если Вы считаете, что платеж отсутствует, Вы можете использовать эту функцию.</string>
+    <string name="scan_payment_txid_description">Эта функция позволяет вам вручную ввести ID транзакции и посмотреть, содержит ли соответствующая транзакция платеж на ваш многразовый адрес. Если это так, то средства будут добавлены в ваш кошелек. Обычно приложение автоматически обнаруживает переадресацию платежей, но если Вы считаете, что платеж отсутствует, Вы можете использовать эту функцию.</string>
     <string name="enable_recoverable_description">Данная функция позволяет Вам восстановить Ваш ArcBit-кошелек, если Вы удалите это приложение. Ваша восстановительная фраза-пароль хранится в вашей цепочке ключей, и если Вы включите эту функцию, то приложение, установленное повторно, сможет ее прочитать. Данная функция не позволяет восстановить кошельки или адреса, которые Вы импортировали в другие учетные записи.</string>
     <string name="to">Кому</string>
     <string name="to_colon">Кому:</string>
@@ -321,6 +320,7 @@
     <string name="unconfirmed">Не подтверждено</string>
     <string name="unencrypted">Не зашифровано</string>
     <string name="checkout_the_arcbit_web_wallet_description">Используйте ArcBit в своем браузере, чтобы дополнить мобильное приложение. Веб-кошелек имеет все функции, как и у мобильного кошелька, плюс дополнительные возможности!</string>
+    <!--<string name="use_all_funds">Использовать все средства</string>-->
     <string name="view_addresses">Показать адреса</string>
     <string name="view_arcbit_brain_wallet_details">Показать детали ArcBit мыслекошелька</string>
     <string name="view_arcbit_web_wallet_details">Показать детали ArcBit Веб-кошелька</string>
@@ -345,7 +345,6 @@
     <string name="send_to_reusable_address_warning">Вы совершаете платеж на адрес многоразового использования. Убедитесь, что получатель может видеть отправленные ему платежи. (Все многоразовые адреса ArcBit совместимы с другими кошельками ArcBit)</string>
     <string name="more_funds_needed">У вас есть %1$s, но необходимо %2$s. (Сюда уже включена комиссия по транзакции)</string>
     <string name="exit_app_to_take_effect">Вы должны выйти и закрыть это приложение, чтобы изменения вступили в силу.</string>
-    <string name="maximum_accounts_reached_need_to_archive">Вам необходимо заархивировать учетную запись, чтобы разблокировать другую.</string>
     <string name="restor_wallet_explanation">Ваш текущий кошелек будет удален. Вы можете восстановить текущий кошелек с помощью восстановительной фразы-пароля, но любые импортированные учетные записи или адреса, созданные в расширенном режиме, не могут быть восстановлены. Вы хотите продолжить?</string>
     <string name="device_rooted_description">Ваше устройство, похоже, rooted. Имейте в виду, что хранение средств на rooted устройстве является небезопасным и, кроме того, может привести к проблемам стабильности.</string>
     <string name="old_android_warning">Ваше устройство использует старую версию Андроида, которая менее безопасна. Для лучшей безопасности перейдите на последнюю версию Андроида.</string>
@@ -353,5 +352,5 @@
     <string name="your_wallet_is_now_restored">Ваш кошелек восстановлен</string>
     <string name="arcbit_web_wallet_detail">\tArcBit веб-кошелек - это расширение для Chrome. Он поддерживает все функции мобильного кошелька, а также многое другое. Из основного - возможность создания нескольких кошельков вместо одного, а также новый не громоздкий способ генерации кошельков, хранение и расчёты биткоинами из холодного хранения! Новый способ управления Вашими биткоинами с использованием холодного хранения ArcBit также предлагает более веские основания использовать функцию учетной записи ArcBit. Теперь Вы можете спокойно следить за балансом ваших биткоинов с холодным хранением, включив опционный режим в ArcBit и импортируя открытые ключи учетной записи холодного хранения.\n</string>
     <string name="arcbit_web_wallet_detail_2">\tИспользуйте ArcBit веб-кошелек по-разному, как бы Вы хотели: Вы можете создать новый кошелек, или Вы можете ввести свою текущую восстановительную фразу-пароль, которая состоит из 12 слов для управления одними и теми же биткоинами на разных устройствах. Узнайте больше о веб-кошельке ArcBit в интернет-магазине Chrome.\n</string>
-    <string name="arcbit_brain_wallet_detail">\tС Arcbit-мыслекошельком Вы можете безопасно тратить свои биткоины, не используя при этом Ваши личные ключи в Интернете. Его можно использовать в сочетании с вашим Arcbit-кошельком или оффлайн-кошельком..\n</string>
+    <string name="arcbit_brain_wallet_detail">\tС Arcbit-мыслекошельком Вы можете безопасно тратить свои биткоины, не используя при этом Ваши личные ключи в Интернете. Его можно использовать в сочетании с вашим Arcbit-кошельком или оффлайн-кошельком.\n</string>
 </resources>

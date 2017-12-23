@@ -65,9 +65,6 @@ import com.google.zxing.client.android.CaptureActivity;
 
 public class AccountsFragment extends android.support.v4.app.Fragment {
     private static final String TAG = AccountsFragment.class.getName();
-    private int MAX_ACTIVE_CREATED_ACCOUNTS = 8;
-    private int MAX_IMPORTED_ACCOUNTS = 12;
-    private int MAX_IMPORTED_ADDRESSES = 32;
 
     public static final int SCAN_URI_COLD_WALLET_ACCOUNT = 2712;
     public static final int SCAN_URI_IMPORT_ACCOUNT = 2713;
@@ -1555,10 +1552,6 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                             }
                         });
                     } else if (which == UNARCHIVE_ACCOUNT_BUTTON_IDX) {
-                        if (appDelegate.coldWalletAccounts.getNumberOfAccounts() + appDelegate.importedAccounts.getNumberOfAccounts() + appDelegate.importedWatchAccounts.getNumberOfAccounts() >= this.MAX_IMPORTED_ACCOUNTS) {
-                            TLPrompts.promptErrorMessage(getActivity(), getString(R.string.maximum_accounts_reached), getString(R.string.maximum_accounts_reached_need_to_archive));
-                            return;
-                        }
                         this.promptToUnarchiveAccount(accountObject);
                     } else if (which == DELETE_ACCOUNT_BUTTON_IDX) {
                         if (accountType == TLWalletUtils.TLAccountType.ColdWallet) {
@@ -1622,11 +1615,6 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                                     }
                                 });
                             } else if (which == UNARCHIVE_ACCOUNT_BUTTON_IDX) {
-                                if (appDelegate.accounts.getNumberOfAccounts() >= this.MAX_ACTIVE_CREATED_ACCOUNTS) {
-                                    TLPrompts.promptErrorMessage(getActivity(), getString(R.string.maximum_accounts_reached), getString(R.string.maximum_accounts_reached_need_to_archive));
-                                    return;
-                                }
-
                                 this.promptToUnarchiveAccount(accountObject);
                             }
                         }

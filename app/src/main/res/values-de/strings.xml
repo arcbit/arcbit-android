@@ -23,7 +23,7 @@
     <string name="active_main_addresses">Aktive Hauptadressen</string>
     <string name="address">Adresse</string>
     <string name="address_id_colon_number">Adressen ID %1$d:</string>
-    <string name="address_id_colon">Adressen ID:</string>
+    <string name="address_id_colon">Adresse ID:</string>
     <string name="address_colon">Adresse: %1$s</string>
     <string name="addresses">Adressen</string>
     <string name="advanced_settings">Erweiterte Einstellungen</string>
@@ -126,7 +126,7 @@
     <string name="edit_contact_name">Kontakt Namen ändern</string>
     <string name="edit_transaction_label">Transaktionsbezeichnung ändern</string>
     <string name="edit_label">Bezeichnung ändern</string>
-    <string name="email_support">Email Support</string>
+    <string name="email_support">Email Unterstützung</string>
     <string name="enable_dynamic_fee">Aktiviere dynamische Gebühr</string>
     <string name="enable_pin_code">Aktiviere PIN</string>
     <string name="enable_pin_code_to_better_secure">Aktiviere die PIN in den Einstellungen um das Wallet besser zu schützen.</string>
@@ -157,8 +157,8 @@
     <string name="from_colon">Von:</string>
     <string name="funds_have_been_claimed_already">Guthaben wurde bereits verwendet.</string>
     <string name="funds_imported">Guthaben importiert</string>
-    <string name="high_fee_not_necessary">Hohe Gebühren nicht notwendig</string>
     <string name="history">Geschichte</string>
+    <string name="i_understand">ich verstehe</string>
     <string name="id_colon">ID: %1$s</string>
     <string name="import_account">Account importieren</string>
     <string name="import_address">Adresse importieren</string>
@@ -173,7 +173,7 @@
     <string name="imported_accounts">Importiere Accounts</string>
     <string name="imported_address">Importierte Adresse</string>
     <string name="imported_addresses">Importierte Adressen</string>
-    <string name="importing_cold_wallet_account_account_name">Importierter Offline Brieftasche Account%1$d</string>
+    <string name="importing_cold_wallet_account_account_name">Importierter Offline Brieftasche Account %1$d</string>
     <string name="importing_watch_account_account_name">Importierter Watch Account %1$d</string>
     <string name="imported_watch_accounts">Importierte Watch Accounts</string>
     <string name="reusable_address_watch_account_explanation">Importierte Watch Accounts können keine Zahlungen der wiederverwendeten Adressen sehen. Wenn du die Zahlungen sehen willst, muss der passende private Schlüssel importiert werden.</string>
@@ -195,7 +195,7 @@
     <string name="internal_wallet_data">Wallet Daten</string>
     <string name="internal_account_transfer">Account intern verschieben</string>
     <string name="invalid_uri_does_not_contain__address">URI enthält keine Bitcoin Adresse</string>
-    <string name="invalid_bitcoin_address">Ungültige Bitcoinadresse</string>
+    <string name="invalid_bitcoin_address">Ungültige Adresse</string>
     <string name="invalid_pin">Ungültige PIN. Bitte versuche es erneut.</string>
     <string name="invalid_passphrase">Ungültige Wortfolge</string>
     <string name="invalid_url">Ungültige URL</string>
@@ -209,10 +209,9 @@
     <string name="qr_code_key_warning">Es wird nicht geraten die privaten Schlüssel selber zu verwalten. Ein Leck kann zum Verlust des gesamten Wallet-Guthabens führen.</string>
     <string name="add_non_reusable_address_to_contacts_warning">Es wird nicht geraten Adressen mehrfach zu nutzen, lieber sollte eine wiederverwendbare Adresse importiert werden. Trotzdem hinzufügen?</string>
     <string name="label">Beschriftung</string>
-    <string name="label_transaction">Transaktionsbeschriftung</string>
+    <string name="label_transaction">Transaktions Beschriftung</string>
     <string name="like_using_arcbit">Magst du ArcBit?</string>
     <string name="local_currency">Locale Währung</string>
-    <string name="low_fee_not_recommended">Geringe manuelle Gebühr wird nicht empfohlen</string>
     <string name="master_seed_hex">Hauptgrundlage</string>
     <string name="maximum_accounts_reached">Maximale Anzahl an Accounts erreicht</string>
     <string name="mnemonic">Gedächtnisstütze</string>
@@ -237,7 +236,7 @@
     <string name="password">Passwort</string>
     <string name="payment_index_colon">Zahlungs Index:</string>
     <string name="enter_current_pin">Gib den aktuellen PIN ein.</string>
-    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Bitte schreibe die Wortfolge auf oder merke sie dir sehr gut.</string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Notieren oder merken Sie sich Ihre Brieftaschen-Backup-Passphrase. Wenn Sie Ihre Backup-Passphrase verlieren, kann Ihre Brieftasche nicht wiederhergestellt werden. Backup kann später durchgeführt werden. Die Backup-Passphrase ist immer in den Einstellungen zu finden.</string>
     <string name="preferences">Einstellungen</string>
     <string name="private_key_does_not_match_address">Der private Schlüssel passt nicht zur Adresse</string>
     <string name="private_key_missing">Privater Schlüssel fehlt</string>
@@ -250,7 +249,7 @@
     <string name="rename_account">Account umbenennen</string>
     <string name="report_translation_error">Melde einen Übersetzungsfehler</string>
     <string name="restore_wallet">Stelle das Wallet wieder her</string>
-    <string name="restoring_wallet">Stelle Wallet  wieder her</string>
+    <string name="restoring_wallet">Stelle Wallet wieder her</string>
     <string name="retry">Wiederholen</string>
     <string name="reusable_address_payment_addresses">Wiederverwendbare Zahlungsadressen</string>
     <string name="reusable_address_colon">Wiederverwendbare Adresse %1$s</string>
@@ -333,18 +332,17 @@
     <string name="within_half_hour_90_probability">Innerhalb einer halben Stunde (90% Wahrscheinlichkeit)</string>
     <string name="write_down_backup_passphrase_suggestion">Schriebe diese Wortfolge auf oder merke sie dir gut! Diese Wortfolge wird benötigt um deine BTC wiederherzustellen.</string>
     <string name="passphrase_instructions_advanced">Schreib diese Wortfolge auf und bewahre sie gut auf. Diese Wortfolge kann das gesamte Wallet wiederherstellen (ausgenommen sind Imports).</string>
-    <string name="passphrase_instructions">Schreib diese Wortfolge auf und bewahre sie gut auf. Diese Wortfolge kann das gesamte Wallet wiederherstellen (ausgenommen sind Imports).</string>
+    <string name="passphrase_instructions">Schreib diese Wortfolge auf und bewahre sie gut auf. Diese Wortfolge kann das gesamte Wallet wiederherstellen.</string>
     <string name="yes">Ja</string>
     <string name="send_to_reusable_address_warning">Du führst eine Zahlung an eine Wiederverwendbare Adresse aus. Stelle sicher, dass der Empfänger die Zahlung sehen kann. Wiederverwendbare Adressen sind mit anderen ArcBit Wallets kompatibel.</string>
     <string name="more_funds_needed">Du hast %1$s, aber %2$s Wird benötigt. Darin enthalten ist die Transaktionsgebühr.</string>
     <string name="exit_app_to_take_effect">Du musst die App komplett beenden damit die Änderung wirksam wird.</string>
-    <string name="maximum_accounts_reached_need_to_archive">Ein Account muss Archiviert werden um einen anderen zu entarchivieren.</string>
     <string name="restor_wallet_explanation">Das aktuelle Wallet wird gelöscht. Du kannst es wiederherstellen mit der Wortfolge aber alle importierten importierten Accounts und im fortgeschrittenen Modus erstellten Adressen können nicht wieder hergestellt werden. Trotzdem fortfahren?</string>
     <string name="device_rooted_description">Dein Gerät scheint gerottet zu sein. Ein Wallet auf einem gerosteten Gerät ist nicht sicher.</string>
     <string name="old_android_warning">Dein Gerät läuft mit einer veralteten Android Version. Wechsel zu einer eueren Software für mehr Sicherheit.</string>
     <string name="too_high_fee">Die neue Transaktionsgebühr ist zu hoch.</string>
     <string name="your_wallet_is_now_restored">Dein Wallet ist nun wiederhergetellt</string>
-    <string name="arcbit_web_wallet_detail">\ArcBits Web Wallet ist eine Chrome Erweiterung. Es hat alle Features der mobilen Wallets und mehr. Es können mehr als ein Wallet gleichzeitig erstellt werden. Außerdem kann so das Offline Brieftasche Feature noch besser genutzt werden. Von überall kann mit dem öffentlichen Schlüssel die Balance angesehen werden und trotzdem sind die BTC sicher nur auf dem Offline Brieftasche und können nicht gesendet werden ohne extra Autorisierung.\n</string>
-    <string name="arcbit_web_wallet_detail_2">\Wenn du im Web Wallet die selbe Wortfolge verwendest, kannst du das selbe Wallet von überall aus verwalten. Schau dir mehr Detail an m Chrome Web Store.\n</string>
-    <string name="arcbit_brain_wallet_detail">\Das ArcBit Gedächtnisbrieftasche kann genutzt werden um deine Bitcoin zu verwalten ohne jemals die privaten Schlüssel öffentlich werden zu lassen. Du kannst es zusammen mit der ArcBit App verwenden oder allein. Nur du hast Zugang.\n</string>
+    <string name="arcbit_web_wallet_detail">\tArcBits Web Wallet ist eine Chrome Erweiterung. Es hat alle Features der mobilen Wallets und mehr. Es können mehr als ein Wallet gleichzeitig erstellt werden. Außerdem kann so das Offline Brieftasche Feature noch besser genutzt werden. Von überall kann mit dem öffentlichen Schlüssel die Balance angesehen werden und trotzdem sind die BTC sicher nur auf dem Offline Brieftasche und können nicht gesendet werden ohne extra Autorisierung.\n</string>
+    <string name="arcbit_web_wallet_detail_2">\tWenn du im Web Wallet die selbe Wortfolge verwendest, kannst du das selbe Wallet von überall aus verwalten. Schau dir mehr Detail an m Chrome Web Store.\n</string>
+    <string name="arcbit_brain_wallet_detail">\tDas ArcBit Gedächtnisbrieftasche kann genutzt werden um deine Bitcoin zu verwalten ohne jemals die privaten Schlüssel öffentlich werden zu lassen. Du kannst es zusammen mit der ArcBit App verwenden oder allein. Nur du hast Zugang.\n</string>
 </resources>

@@ -218,7 +218,7 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
 
     void showPromptThenPassphraseActivity() {
         TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
-                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.i_understand), new TLPrompts.PromptOKCallback() {
                     @Override
                     public void onSuccess() {
                         Intent intent = new Intent(getActivity(), PassphraseActivity.class);

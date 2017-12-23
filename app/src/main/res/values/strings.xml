@@ -82,7 +82,7 @@
     <string name="checkout_the_arcbit_web_wallet">Check out the ArcBit Web Wallet!</string>
     <string name="check_out_the_arcbit_ios_wallet">Check out the ArcBit iOS Wallet</string>
     <string name="checking_transaction">Checking Transaction</string>
-    <string name="clear_account_private_key_from_memory">Clear account private key from memory</string>
+    <string name="clear_account_private_key_from_memory">Account private key cleared from memory</string>
     <string name="clear_private_key_from_memory">Clear private key from memory</string>
     <string name="cleared_from_memory">Cleared from memory</string>
     <string name="cold_wallet">Cold Wallet</string>
@@ -157,8 +157,8 @@
     <string name="from_colon">From:</string>
     <string name="funds_have_been_claimed_already">Funds have been claimed already.</string>
     <string name="funds_imported">Funds imported</string>
-    <string name="high_fee_not_necessary">High fee not necessary.</string>
     <string name="history">History</string>
+    <string name="i_understand">I Understand</string>
     <string name="id_colon">ID: %1$s</string>
     <string name="import_account">Import Account</string>
     <string name="import_address">Import Address</string>
@@ -195,7 +195,7 @@
     <string name="internal_wallet_data">Internal Wallet Data</string>
     <string name="internal_account_transfer">Internal account transfer</string>
     <string name="invalid_uri_does_not_contain__address">Invalid Bitcoin URI, does not contain an address.</string>
-    <string name="invalid_bitcoin_address">Invalid Bitcoin address</string>
+    <string name="invalid_bitcoin_address">Invalid address</string>
     <string name="invalid_pin">Invalid PIN. Please try again.</string>
     <string name="invalid_passphrase">Invalid Passphrase</string>
     <string name="invalid_url">Invalid URL</string>
@@ -212,7 +212,6 @@
     <string name="label_transaction">Label Transaction</string>
     <string name="like_using_arcbit">Do you like using ArcBit?</string>
     <string name="local_currency">Local Currency</string>
-    <string name="low_fee_not_recommended">Low Custom Fee Not Recommended</string>
     <string name="master_seed_hex">Master Seed</string>
     <string name="maximum_accounts_reached">Maximum accounts reached</string>
     <string name="mnemonic">Mnemonic</string>
@@ -237,7 +236,7 @@
     <string name="password">Password</string>
     <string name="payment_index_colon">Payment Index:</string>
     <string name="enter_current_pin">Please enter current PIN.</string>
-    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Please write down or memorize your wallet backup passphrase.</string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Write down or memorize your wallet backup passphrase. If you lose your backup passphrase, your wallet cannot be recovered. Backup can be done later. The backup passphrase can always be found in settings.<settings class=""></settings></string>
     <string name="preferences">preferences</string>
     <string name="private_key_does_not_match_address">Private key does not match address</string>
     <string name="private_key_missing">Private key missing</string>
@@ -314,6 +313,7 @@
     <string name="unconfirmed">Unconfirmed</string>
     <string name="unencrypted">Unencrypted</string>
     <string name="checkout_the_arcbit_web_wallet_description">Use ArcBit on your browser to complement the mobile app. The web wallet has all the features that the mobile wallet has plus more!</string>
+    <string name="use_all_funds">Use all funds</string>
     <string name="view_addresses">View Addresses</string>
     <string name="view_arcbit_brain_wallet_details">View ArcBit Brain Wallet Details</string>
     <string name="view_arcbit_web_wallet_details">View ArcBit Web Wallet Details</string>
@@ -338,7 +338,6 @@
     <string name="send_to_reusable_address_warning">You are making a payment to a reusable address. Make sure that the receiver can see the payment made to them. (All ArcBit reusable addresses are compatible with other ArcBit wallets)</string>
     <string name="more_funds_needed">You have %1$s, but %2$s is needed. (This includes the transactions fee)</string>
     <string name="exit_app_to_take_effect">You must exit and kill this app in order for this to take effect.</string>
-    <string name="maximum_accounts_reached_need_to_archive">You need to archive an account in order to unarchive a different one.</string>
     <string name="restor_wallet_explanation">Your current wallet will be deleted. Your can restore your current wallet later with the wallet passphrase, but any imported accounts or addresses created in advanced mode cannot be recovered. Do you wish to continue?</string>
     <string name="device_rooted_description">Your device appears to be rooted. Be advised that storing funds on a rooted device is unsafe and, in addition, can cause stability issues.</string>
     <string name="old_android_warning">Your device is using an old version of Android that is less secure. Switch to a device with a more recent Android version for better security.</string>

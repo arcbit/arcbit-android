@@ -160,8 +160,8 @@
 	<string name="from_colon">從：</string>
 	<string name="funds_have_been_claimed_already">基金已經被宣稱。</string>
 	<string name="funds_imported">資金進口</string>
-	<string name="high_fee_not_necessary">高費沒有必要。</string>
 	<string name="history">歷史</string>
+	<string name="i_understand">我明白</string>
 	<string name="id_colon">ID：%1$s</string>
 	<string name="import_account">導入帳戶</string>
 	<string name="import_address">導入地址</string>
@@ -209,7 +209,6 @@
 	<string name="label">標籤</string>
 	<string name="label_transaction">標注交易</string>
 	<string name="local_currency">本地貨幣</string>
-	<string name="low_fee_not_recommended">低自定義費不推薦</string>
 	<string name="master_seed_hex">主種子</string>
 	<string name="maximum_accounts_reached">最大的帳戶達到</string>
 	<string name="mnemonic">助記符</string>
@@ -234,7 +233,7 @@
 	<string name="password">密碼</string>
 	<string name="payment_index_colon">付款指數：</string>
 	<string name="enter_current_pin">請輸入當前的PIN碼。</string>
-	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">請記下或記住您的錢包備份密碼。</string>
+	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">記下或記住您的錢包備份密碼。如果您丟失了備份密碼，您的錢包將無法恢復。備份可以在以後完成。備份密碼總是可以在設置中找到。</string>
 	<string name="preferences">優先</string>
 	<string name="private_key_does_not_match_address">私密金鑰不匹配地址</string>
 	<string name="private_key_missing">私密金鑰缺失</string>
@@ -311,6 +310,7 @@
 	<string name="unconfirmed">未確認</string>
 	<string name="unencrypted">未加密</string>
 	<string name="checkout_the_arcbit_web_wallet_description">使用您的瀏覽器ArcBit為補充的移動應用程序。該網站的錢包所有的移動錢包以及更多功能！</string>
+	<string name="use_all_funds">使用所有資金</string>
 	<string name="view_addresses">查看地址清單</string>
 	<string name="view_arcbit_brain_wallet_details">查看ArcBit腦錢包詳情</string>
 	<string name="view_arcbit_web_wallet_details">查看ArcBit網絡錢包詳情</string>
@@ -335,7 +335,6 @@
 	<string name="send_to_reusable_address_warning">您正在向可重複使用的地址付款。確保接收方可以看到對他們的付款。（所有ArcBit可重用地址都與其他ArcBit錢包兼容）</string>
 	<string name="more_funds_needed">你有%1$s，但需要%2$s。（包括交易費用）</string>
 	<string name="exit_app_to_take_effect">您必須退出並殺死此應用程序，以使此生效。</string>
-	<string name="maximum_accounts_reached_need_to_archive">您需要歸檔帳戶才能取消歸檔其他帳戶。</string>
 	<string name="restor_wallet_explanation">您目前的錢包將被刪除。您可以稍後使用錢包密碼復原您當前的錢包，但無法恢復在高級模式下創建的任何導入的帳戶或地址。你想繼續嗎？</string>
 	<string name="device_rooted_description">您的設備似乎根深蒂固。注意，一個根設備上存儲的資金是不安全的，此外，可造成穩定性問題。</string>
 	<string name="old_android_warning">您的裝置使用的舊版Android不太安全。切換到最新Android版本的設備，以提高安全性。</string>

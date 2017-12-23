@@ -275,41 +275,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         String feeAmount = (String) obj;
                         if (feeAmount != null && !feeAmount.isEmpty()) {
                             TLCoin feeAmountCoin = appDelegate.currencyFormat.properBitcoinAmountStringToCoin(feeAmount);
-                            if (TLTransactionFee.isTransactionFeeTooLow(feeAmountCoin)) {
-                                TLPrompts.promptYesNo(getActivity(), getString(R.string.low_fee_not_recommended), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                    @Override
-                                    public void onSuccess(Object obj) {
-                                        TLCoin amount = appDelegate.currencyFormat.bitcoinAmountStringToCoin(feeAmount);
-                                        appDelegate.preferences.setTransactionFee(amount.toNumber());
-                                        LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_CHANGE_AUTOMATIC_TX_FEE));
-                                        refreshList();
-                                    }
-
-                                    @Override
-                                    public void onCancel() {
-                                        showPromptForSetTransactionFee();
-                                    }
-                                });
-                            } else if (TLTransactionFee.isTransactionFeeTooHigh(feeAmountCoin)) {
-                                TLPrompts.promptYesNo(getActivity(), getString(R.string.high_fee_not_necessary), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                    @Override
-                                    public void onSuccess(Object obj) {
-                                        TLCoin amount = appDelegate.currencyFormat.bitcoinAmountStringToCoin(feeAmount);
-                                        appDelegate.preferences.setTransactionFee(amount.toNumber());
-                                        LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_CHANGE_AUTOMATIC_TX_FEE));
-                                        refreshList();
-                                    }
-
-                                    @Override
-                                    public void onCancel() {
-                                        showPromptForSetTransactionFee();
-                                    }
-                                });
-                            } else {
-                                appDelegate.preferences.setTransactionFee(feeAmountCoin.toNumber());
-                                LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_CHANGE_AUTOMATIC_TX_FEE));
-                                refreshList();
-                            }
+                            appDelegate.preferences.setTransactionFee(feeAmountCoin.toNumber());
+                            LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_CHANGE_AUTOMATIC_TX_FEE));
+                            refreshList();
                         }
                     }
 

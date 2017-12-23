@@ -426,7 +426,7 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
 
     void showPromptThenPassphraseActivity() {
         TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
-                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.i_understand), new TLPrompts.PromptOKCallback() {
                     @Override
                     public void onSuccess() {
                         Intent intent = new Intent(getActivity(), PassphraseActivity.class);
@@ -1294,34 +1294,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                                 }
 
                                 if (feeAmountString != null && !feeAmountString.isEmpty()) {
-                                    if (TLTransactionFee.isTransactionFeeTooLow(feeAmount)) {
-                                        TLPrompts.promptYesNo(getActivity(), getString(R.string.low_fee_not_recommended), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                            @Override
-                                            public void onSuccess(Object obj) {
-                                                appDelegate.sendFormData.feeAmount = feeAmount;
-                                                updateReviewPaymentView();
-                                            }
-
-                                            @Override
-                                            public void onCancel() {
-                                            }
-                                        });
-                                    } else if (TLTransactionFee.isTransactionFeeTooHigh(feeAmount)) {
-                                        TLPrompts.promptYesNo(getActivity(), getString(R.string.high_fee_not_necessary), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                            @Override
-                                            public void onSuccess(Object obj) {
-                                                appDelegate.sendFormData.feeAmount = feeAmount;
-                                                updateReviewPaymentView();
-                                            }
-
-                                            @Override
-                                            public void onCancel() {
-                                            }
-                                        });
-                                    } else {
-                                        appDelegate.sendFormData.feeAmount = feeAmount;
-                                        updateReviewPaymentView();
-                                    }
+                                    appDelegate.sendFormData.feeAmount = feeAmount;
+                                    updateReviewPaymentView();
                                 }
                             }
 
