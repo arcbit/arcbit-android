@@ -236,7 +236,7 @@
     <string name="password">Password</string>
     <string name="payment_index_colon">Payment Index:</string>
     <string name="enter_current_pin">Please enter current PIN.</string>
-    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Write down or memorize your wallet backup passphrase. If you lose your backup passphrase, your wallet cannot be recovered. Backup can be done later. The backup passphrase can always be found in settings.<settings class=""></settings></string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Write down or memorize your wallet backup passphrase. If you lose your backup passphrase, your wallet cannot be recovered.<settings class=""></settings></string>
     <string name="preferences">preferences</string>
     <string name="private_key_does_not_match_address">Private key does not match address</string>
     <string name="private_key_missing">Private key missing</string>

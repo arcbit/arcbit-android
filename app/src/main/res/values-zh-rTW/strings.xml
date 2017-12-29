@@ -233,7 +233,7 @@
 	<string name="password">密碼</string>
 	<string name="payment_index_colon">付款指數：</string>
 	<string name="enter_current_pin">請輸入當前的PIN碼。</string>
-	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">記下或記住您的錢包備份密碼。如果您丟失了備份密碼，您的錢包將無法恢復。備份可以在以後完成。備份密碼總是可以在設置中找到。</string>
+	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">記下或記住您的錢包備份密碼。</string>
 	<string name="preferences">優先</string>
 	<string name="private_key_does_not_match_address">私密金鑰不匹配地址</string>
 	<string name="private_key_missing">私密金鑰缺失</string>

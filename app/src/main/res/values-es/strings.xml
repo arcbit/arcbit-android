@@ -236,7 +236,7 @@
 	<string name="password">Contraseña</string>
 	<string name="payment_index_colon">Índice de Pago:</string>
 	<string name="enter_current_pin">Por favor, introduzca el PIN actual.</string>
-	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Escriba o memorice su contraseña de contraseña de la billetera. Si pierde su frase de contraseña de respaldo, su billetera no podrá recuperarse. La copia de seguridad se puede hacer más tarde. La frase de contraseña de la copia de seguridad siempre se puede encontrar en la configuración.</string>
+	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Escriba o memorice su contraseña de contraseña de la billetera. Si pierde su frase de contraseña de respaldo, su billetera no podrá recuperarse.</string>
 	<string name="preferences">preferencias</string>
 	<string name="private_key_does_not_match_address">Clave privada no coincide con la dirección</string>
 	<string name="private_key_missing">Privado clave que falta</string>

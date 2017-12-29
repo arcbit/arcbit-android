@@ -236,7 +236,7 @@
     <string name="password">Passwort</string>
     <string name="payment_index_colon">Zahlungs Index:</string>
     <string name="enter_current_pin">Gib den aktuellen PIN ein.</string>
-    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Notieren oder merken Sie sich Ihre Brieftaschen-Backup-Passphrase. Wenn Sie Ihre Backup-Passphrase verlieren, kann Ihre Brieftasche nicht wiederhergestellt werden. Backup kann später durchgeführt werden. Die Backup-Passphrase ist immer in den Einstellungen zu finden.</string>
+    <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">Notieren oder merken Sie sich Ihre Brieftaschen-Backup-Passphrase. Wenn Sie Ihre Backup-Passphrase verlieren, kann Ihre Brieftasche nicht wiederhergestellt werden.</string>
     <string name="preferences">Einstellungen</string>
     <string name="private_key_does_not_match_address">Der private Schlüssel passt nicht zur Adresse</string>
     <string name="private_key_missing">Privater Schlüssel fehlt</string>
