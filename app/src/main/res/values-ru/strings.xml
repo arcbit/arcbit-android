@@ -257,6 +257,7 @@
     <string name="restore_wallet">Восстановить кошелек</string>
     <string name="restoring_wallet">Восстановление кошелька</string>
     <string name="retry">Повторите попытку</string>
+    <string name="reusable_address_disabled">Повторные платежи адресов отключены до дальнейшего уведомления.</string>
     <string name="reusable_address_payment_addresses">Адреса платежей на многоразовые адреса</string>
     <string name="reusable_address_colon">Многоразовые адреса: %1$s</string>
     <string name="review_payment">Обзор платежа</string>

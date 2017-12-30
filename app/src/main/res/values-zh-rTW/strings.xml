@@ -248,6 +248,7 @@
 	<string name="restore_wallet">恢復錢包</string>
 	<string name="restoring_wallet">恢復錢包</string>
 	<string name="retry">重試</string>
+	<string name="reusable_address_disabled">可重複使用的地址付款被禁用，直至另行通知。</string>
 	<string name="reusable_address_payment_addresses">可重複使用的地址付款地址</string>
 	<string name="reusable_address_colon">可重複使用的地址： %1$s</string>
 	<string name="review_payment">審查付款</string>

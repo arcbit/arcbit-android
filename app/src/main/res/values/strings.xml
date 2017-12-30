@@ -251,6 +251,7 @@
     <string name="restore_wallet">Restore Wallet</string>
     <string name="restoring_wallet">Restoring Wallet</string>
     <string name="retry">Retry</string>
+    <string name="reusable_address_disabled">Reusable address payments are disabled until further notice.</string>
     <string name="reusable_address_payment_addresses">Reusable Address Payment Addresses</string>
     <string name="reusable_address_colon">Reusable Address: %1$s</string>
     <string name="review_payment">Review Payment</string>

@@ -1168,7 +1168,15 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
 
     private void reviewPaymentClicked() {
         String toAddress = this.toAddressEditText.getText().toString();
-
+        if (!TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            TLPrompts.promptWithOneButton(getActivity(), null,
+                    getString(R.string.reusable_address_disabled), getString(R.string.ok_capitalize), new TLPrompts.PromptOKCallback() {
+                        @Override
+                        public void onSuccess() {
+                        }
+                    });
+            return;
+        }
         if (toAddress != null && TLStealthAddress.isStealthAddress(toAddress, appDelegate.appWallet.walletConfig.isTestnet)) {
 
             if (!appDelegate.suggestions.disabledShowStealthPaymentNote()) {

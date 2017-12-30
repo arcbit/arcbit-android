@@ -251,6 +251,7 @@
     <string name="restore_wallet">Stelle das Wallet wieder her</string>
     <string name="restoring_wallet">Stelle Wallet wieder her</string>
     <string name="retry">Wiederholen</string>
+    <string name="reusable_address_disabled">Wiederverwendbare Adresszahlungen sind bis auf weiteres deaktiviert.</string>
     <string name="reusable_address_payment_addresses">Wiederverwendbare Zahlungsadressen</string>
     <string name="reusable_address_colon">Wiederverwendbare Adresse %1$s</string>
     <string name="review_payment">Überprüfe Zahlung</string>

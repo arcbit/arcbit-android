@@ -1089,13 +1089,23 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
         final int RENAME_ACCOUNT_BUTTON_IDX;
         final int ARCHIVE_ACCOUNT_BUTTON_IDX;
         if (appDelegate.preferences.enabledAdvancedMode()) {
-            otherButtonTitles = new String[]{getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.scan_for_reusable_address_payment), getString(R.string.edit_account_name), getString(R.string.archive_account)};
-            VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = 0;
-            VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX = 1;
-            VIEW_ADDRESSES_BUTTON_IDX = 2;
-            MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX = 3;
-            RENAME_ACCOUNT_BUTTON_IDX = 4;
-            ARCHIVE_ACCOUNT_BUTTON_IDX = 5;
+            if (TLWalletUtils.ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT()) {
+                otherButtonTitles = new String[]{getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.scan_for_reusable_address_payment), getString(R.string.edit_account_name), getString(R.string.archive_account)};
+                VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = 0;
+                VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX = 1;
+                VIEW_ADDRESSES_BUTTON_IDX = 2;
+                MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX = 3;
+                RENAME_ACCOUNT_BUTTON_IDX = 4;
+                ARCHIVE_ACCOUNT_BUTTON_IDX = 5;
+            } else {
+                otherButtonTitles = new String[]{getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.edit_account_name), getString(R.string.archive_account)};
+                VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = 0;
+                VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX = 1;
+                VIEW_ADDRESSES_BUTTON_IDX = 2;
+                MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX = -1;
+                RENAME_ACCOUNT_BUTTON_IDX = 3;
+                ARCHIVE_ACCOUNT_BUTTON_IDX = 4;
+            }
         } else {
             otherButtonTitles = new String[]{getString(R.string.view_addresses), getString(R.string.edit_account_name), getString(R.string.archive_account)};
             VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = -1;
@@ -1199,22 +1209,45 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
 
     private void promptImportedAccountsActionSheet(int idx) {
         TLAccountObject accountObject = appDelegate.importedAccounts.getAccountObjectForIdx(idx);
-        CharSequence[] otherButtonTitles = {getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.scan_for_reusable_address_payment), getString(R.string.edit_account_name), getString(R.string.archive_account)};
+        CharSequence[] otherButtonTitles;
+        final int VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX;
+        final int VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX;
+        final int VIEW_ADDRESSES_BUTTON_IDX;
+        final int MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX;
+        final int RENAME_ACCOUNT_BUTTON_IDX;
+        final int ARCHIVE_ACCOUNT_BUTTON_IDX;
+        if (TLWalletUtils.ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT()) {
+            otherButtonTitles = new String[]{getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.scan_for_reusable_address_payment), getString(R.string.edit_account_name), getString(R.string.archive_account)};
+            VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = 0;
+            VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX = 1;
+            VIEW_ADDRESSES_BUTTON_IDX = 2;
+            MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX = 3;
+            RENAME_ACCOUNT_BUTTON_IDX = 4;
+            ARCHIVE_ACCOUNT_BUTTON_IDX = 5;
+        } else {
+            otherButtonTitles = new String[]{getString(R.string.view_account_public_key_qr_code), getString(R.string.view_account_private_key_qr_code), getString(R.string.view_addresses), getString(R.string.edit_account_name), getString(R.string.archive_account)};
+            VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX = 0;
+            VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX = 1;
+            VIEW_ADDRESSES_BUTTON_IDX = 2;
+            MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX = -1;
+            RENAME_ACCOUNT_BUTTON_IDX = 3;
+            ARCHIVE_ACCOUNT_BUTTON_IDX = 4;
+        }
         int accountHDIndex = accountObject.getAccountHDIndex();
         new AlertDialog.Builder(getActivity())
                 .setTitle(getString(R.string.account_id_number, accountHDIndex))
                 .setItems(otherButtonTitles, (dialog, which) -> {
-                            if (which == 0) {
+                            if (which == VIEW_EXTENDED_PUBLIC_KEY_BUTTON_IDX) {
                                 TLPrompts.promptQRCodeDialogCopyToClipboard(getActivity(), accountObject.getExtendedPubKey());
                                 LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_EXTENDED_PUBLIC_KEY));
-                            } else if (which == 1) {
+                            } else if (which == VIEW_EXTENDED_PRIVATE_KEY_BUTTON_IDX) {
                                 TLPrompts.promptQRCodeDialogCopyToClipboard(getActivity(), accountObject.getExtendedPrivKey());
                                 LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_EXTENDED_PRIVATE_KEY));
-                            } else if (which == 2) {
+                            } else if (which == VIEW_ADDRESSES_BUTTON_IDX) {
                                 showAddressListView(accountObject, true);
-                            } else if (which == 3) {
+                            } else if (which == MANUALLY_SCAN_TX_FOR_STEALTH_TRANSACTION_BUTTON_IDX) {
                                 promptInfoAndToManuallyScanForStealthTransactionAccount(accountObject);
-                            } else if (which == 4) {
+                            } else if (which == RENAME_ACCOUNT_BUTTON_IDX) {
                                 TLPrompts.promptForInputSaveCancel(getActivity(), getString(R.string.rename_account), "", getString(R.string.name), InputType.TYPE_CLASS_TEXT, new TLPrompts.PromptCallback() {
                                     @Override
                                     public void onSuccess(Object obj) {
@@ -1226,7 +1259,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                                     public void onCancel() {
                                     }
                                 });
-                            } else if (which == 5) {
+                            } else if (which == ARCHIVE_ACCOUNT_BUTTON_IDX) {
                                 promptToArchiveAccount(accountObject);
                             }
 
@@ -1813,7 +1846,7 @@ public class AccountsFragment extends android.support.v4.app.Fragment {
                         } else if (accountObject.getAccountType() == TLWalletUtils.TLAccountType.ImportedWatch) {
                             appDelegate.importedWatchAccounts.unarchiveAccount(accountObject.getPositionInWalletArray());
                         }
-                        if (!accountObject.isWatchOnly() && !accountObject.isColdWalletAccount() && !accountObject.stealthWallet.hasUpdateStealthPaymentStatuses) {
+                        if (TLWalletUtils.ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT() && !accountObject.isWatchOnly() && !accountObject.isColdWalletAccount() && !accountObject.stealthWallet.hasUpdateStealthPaymentStatuses) {
                             accountObject.stealthWallet.updateStealthPaymentStatusesAsync();
                         }
                         manageAccountAdapter.notifyDataSetChanged();

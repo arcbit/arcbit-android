@@ -262,7 +262,7 @@ public class TLAppDelegate {
 
             int sumMainAndChangeAddressMaxIdx = accountObject.recoverAccount(false);
             Log.d(TAG, String.format("accountName %s sumMainAndChangeAddressMaxIdx: %d", accountName, sumMainAndChangeAddressMaxIdx));
-            if (sumMainAndChangeAddressMaxIdx > -2 || accountObject.stealthWallet.checkIfHaveStealthPayments()) {
+            if (sumMainAndChangeAddressMaxIdx > -2 || TLWalletUtils.ENABLE_STEALTH_ADDRESS() && accountObject.stealthWallet.checkIfHaveStealthPayments()) {
                 consecutiveUnusedAccountCount = 0;
             } else {
                 consecutiveUnusedAccountCount++;
@@ -915,17 +915,19 @@ public class TLAppDelegate {
             List<String> activeAddresses = new ArrayList<String>(accountObject.getActiveMainAddresses());
             activeAddresses.addAll(accountObject.getActiveChangeAddresses());
 
-            if (accountObject.stealthWallet != null) {
-                activeAddresses.addAll(accountObject.stealthWallet.getPaymentAddresses());
-            }
+            if (TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+                if (accountObject.stealthWallet != null) {
+                    activeAddresses.addAll(accountObject.stealthWallet.getPaymentAddresses());
+                }
 
-            if (accountObject.stealthWallet != null) {
-                executorService.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        accountObject.fetchNewStealthPayments(isRestoringWallet);
-                    }
-                });
+                if (accountObject.stealthWallet != null) {
+                    executorService.execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            accountObject.fetchNewStealthPayments(isRestoringWallet);
+                        }
+                    });
+                }
             }
 
             executorService.execute(new Runnable() {

@@ -251,6 +251,7 @@
 	<string name="restore_wallet">Restaurar cartera</string>
 	<string name="restoring_wallet">La restauración de la cartera</string>
 	<string name="retry">Rever</string>
+	<string name="reusable_address_disabled">Los pagos de direcciones reutilizables están deshabilitados hasta nuevo aviso.</string>
 	<string name="reusable_address_payment_addresses">Reutilizable dirección direcciones de pago</string>
 	<string name="reusable_address_colon">Reutilizable Dirección: %1$s</string>
 	<string name="review_payment">Revisión de pagos</string>
