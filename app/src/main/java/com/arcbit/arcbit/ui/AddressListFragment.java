@@ -341,8 +341,6 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
                 maxRange--;
             }
 
-            Log.d("dddddddd", "1111 dddddddd "+  position + " " + offset + " " + maxRange);
-
             if (accountObject.getMainActiveAddressesCount() != 0) {
                 maxRange += accountObject.getMainActiveAddressesCount() + 1;
             } else {
@@ -350,11 +348,9 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
             }
             if (position < maxRange) {
                 if (position == offset) {
-                    Log.d("dddddddd", "2222 dddddddd "+ position + " " + offset + " " + maxRange + " " + accountObject.getMainActiveAddressesCount());
                     return new SectionItem(getString(R.string.active_main_addresses));
                 } else {
                     if (accountObject.getMainActiveAddressesCount() != 0) {
-                        Log.d("dddddddd", "3333 dddddddd "+ position + " " + offset + " " + maxRange + " " + accountObject.getMainActiveAddressesCount());
                         String address = accountObject.getMainActiveAddress(accountObject.getMainActiveAddressesCount()-(position-offset));
                         if (!showBalances) {
                             return new LeftTitleItem(address);
