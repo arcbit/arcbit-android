@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="x_over_y_complete">%1$d/%2$d 完成</string>
+	<string name="x_over_y_complete">%1$d/%2$d完成</string>
 	<string name="parts_scanned">%1$d/%2$d個部分進行掃描。</string>
 	<string name="amount_confirmations">%1$s確認</string>
 	<string name="account_received_amount">%1$s收到%2$s</string>
