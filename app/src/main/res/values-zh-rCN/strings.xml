@@ -104,7 +104,8 @@
 	<string name="customize">定制</string>
 	<string name="dear_arcbit_support">ArcBit support,</string>
 	<string name="decrypting">解密</string>
-	<string name="default_reusable_addresses">可重复使用的默认地址</string> <string name="delete_account_name">删除%1$s</string>
+	<string name="default_reusable_addresses">可重复使用的默认地址</string>
+  <string name="delete_account_name">删除%1$s</string>
 	<string name="delete_account">删除账户</string>
 	<string name="delete_address">删除地址</string>
 	<string name="delete_contact">删除联系人</string>
@@ -161,6 +162,7 @@
 	<string name="funds_imported">资金导入完毕</string>
 	<string name="high_fee_not_necessary">高额费用没有必要</string>
 	<string name="history">历史</string>
+	<string name="i_understand">我明白</string>
 	<string name="id_colon">ID：%1$s</string>
 	<string name="import_account">导入账户</string>
 	<string name="import_address">导入地址</string>
@@ -208,7 +210,6 @@
 	<string name="label">标签</string>
 	<string name="label_transaction">标注交易</string>
 	<string name="local_currency">本地货币</string>
-	<string name="low_fee_not_recommended">不推荐过低的自定义费用</string>
 	<string name="master_seed_hex">主种子</string>
 	<string name="maximum_accounts_reached">达到最大的账户数量</string>
 	<string name="mnemonic">助记符</string>
@@ -233,7 +234,7 @@
 	<string name="password">密码</string>
 	<string name="payment_index_colon">付款指数：</string>
 	<string name="enter_current_pin">请输入当前的PIN码。</string>
-	<string name="please_write_down_or_memorize_your_wallet_backup_passphrase">请记下或记住您的钱包备份助记词。</string>
+  <string name="please_write_down_or_memorize_your_wallet_backup_passphrase">记下或记住您的钱包备份密码。如果您丢失了备份密码，您的钱包将无法恢复。</string>
 	<string name="preferences">优先</string>
 	<string name="private_key_does_not_match_address">私钥不匹配地址</string>
 	<string name="private_key_missing">私钥缺失</string>
@@ -248,6 +249,7 @@
 	<string name="restore_wallet">恢复钱包</string>
 	<string name="restoring_wallet">恢复钱包</string>
 	<string name="retry">重试</string>
+	<string name="reusable_address_disabled">可重复使用的地址付款被禁用，直至另行通知。</string>
 	<string name="reusable_address_payment_addresses">可重复使用的地址付款地址</string>
 	<string name="reusable_address_colon">可重复使用的地址： %1$s</string>
 	<string name="review_payment">审查付款</string>
@@ -303,14 +305,15 @@
 	<string name="transaction_authorized_next_step_description">交易需要传递回您的在线设备，以便将付款交易发送到网络</string>
 	<string name="try_again">再试一次</string>
 	<string name="try_our_new_cold_wallet_feature">尝试我们的冷钱包功能！</string>
-	<string name="unable_to_get_dynamic_fees">无法获得动态的费用。回落固定交易费。 （费可以在审核支付进行配置）</string>
+	<string name="unable_to_get_dynamic_fees">无法获得动态的费用。回落固定交易费。（费可以在审核支付进行配置）</string>
 	<string name="unarchive_account">解除封存账户</string>
 	<string name="unarchive_address">解除封存地址</string>
 	<string name="unarchived_address">未封存地址</string>
 	<string name="unconfirmed">未确认</string>
 	<string name="unencrypted">未加密</string>
 	<string name="checkout_the_arcbit_web_wallet_description">使用您的浏览器ArcBit作为移动应用程序的补充！网页版钱包包含所有的移动钱包功能，甚至更多！</string>
-	<string name="view_addresses">查看地址列表</string>
+    <string name="use_all_funds">使用所有资金</string>
+    <string name="view_addresses">查看地址列表</string>
 	<string name="view_arcbit_brain_wallet_details">查看ArcBit脑钱包详情</string>
 	<string name="view_arcbit_web_wallet_details">查看ArcBit网络钱包详情</string>
 	<string name="view_account_private_key_qr_code">查看账户私钥QR码</string>
@@ -334,8 +337,7 @@
 	<string name="send_to_reusable_address_warning">您正在向可重复使用的地址付款。确保接收方可以看到给他们的付款。（所有ArcBit可重用地址都与其他ArcBit钱包兼容）</string>
 	<string name="more_funds_needed">你有%1$s，需要%2$s。（包括交易费用）</string>
 	<string name="exit_app_to_take_effect">您必须退出并杀掉此应用程序，以使此生效。</string>
-	<string name="maximum_accounts_reached_need_to_archive">您需要封存账户才能解除对其他账户的封存。</string>
-	<string name="restor_wallet_explanation">您当前的钱包将被删除。您可以在稍后使用钱包助记词恢复您当前的钱包，但无法恢复在高级模式下创建的任何导入的账户或地址。你想继续吗？</string>
+	<string name="restor_wallet_explanation">您当前的钱包将被删除。您可以稍后使用钱包助记词恢复您当前的钱包，但无法恢复在高级模式下创建的任何导入的账户或地址。你想继续吗？</string>
 	<string name="device_rooted_description">您的设备似乎root过了。注意，一个root过了的设备上存储的资金是不安全的，此外，还可能有稳定性问题。</string>
 	<string name="old_android_warning">您的设备使用的旧版Android不太安全。切换到最新Android版本的设备以提高安全性。</string>
 	<string name="too_high_fee">您的新交易费太高</string>

@@ -83,7 +83,8 @@ public class TLWalletUtils {
     }
 
     static boolean SHOULD_SAVE_ARCHIVED_ADDRESSES_IN_JSON = false;
-    static boolean ENABLE_STEALTH_ADDRESS = true;
+    static boolean ENABLE_STEALTH_ADDRESS = false;
+    static boolean ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT = true;
 
     static String dataToHexString(byte[] data) {
         return Hex.toHexString(data);
@@ -95,6 +96,9 @@ public class TLWalletUtils {
 
     public static boolean ENABLE_STEALTH_ADDRESS(){
         return ENABLE_STEALTH_ADDRESS;
+    }
+    public static boolean ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT(){
+        return ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT;
     }
 }
 

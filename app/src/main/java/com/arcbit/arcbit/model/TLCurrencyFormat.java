@@ -7,6 +7,7 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 import  com.arcbit.arcbit.model.TLCoin.TLBitcoinDenomination;
 
@@ -115,6 +116,8 @@ public class TLCurrencyFormat {
             if (!amount.matches("[0123456789.,]+")) {
                 return TLCoin.zero();
             } else {
+                //TODO maybe need better way to solve this issue of comma base decimals
+                amount = amount.replaceAll(Pattern.quote(","), ".");
                 return coinFromString(amount, bitcoinDenomination);
             }
         } else {

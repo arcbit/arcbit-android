@@ -28,6 +28,7 @@ import com.arcbit.arcbit.model.TLAppDelegate;
 import com.arcbit.arcbit.model.TLBitcoinjWrapper;
 import com.arcbit.arcbit.model.TLNotificationEvents;
 import com.arcbit.arcbit.model.TLWalletJSONKeys;
+import com.arcbit.arcbit.model.TLWalletUtils;
 import com.arcbit.arcbit.ui.utils.SwipeDismissListViewTouchListener;
 import com.arcbit.arcbit.ui.utils.TLPrompts;
 import com.arcbit.arcbit.ui.utils.TLToast;
@@ -185,7 +186,7 @@ public class ContactsActivity extends ListActivity {
     void processAddressBookAddress(String address) {
         if (TLBitcoinjWrapper.isValidAddress(address, appDelegate.appWallet.walletConfig.isTestnet)) {
             if (TLBitcoinjWrapper.isAddressVersion0(address, appDelegate.appWallet.walletConfig.isTestnet)) {
-                if (!appDelegate.suggestions.disabledSuggestDontAddNormalAddressToAddressBook()) {
+                if (TLWalletUtils.ENABLE_STEALTH_ADDRESS() && !appDelegate.suggestions.disabledSuggestDontAddNormalAddressToAddressBook()) {
                     TLPrompts.promptForOKCancel(ContactsActivity.this, getString(R.string.warning),
                             getString(R.string.add_non_reusable_address_to_contacts_warning), new TLPrompts.PromptCallback() {
                                 @Override

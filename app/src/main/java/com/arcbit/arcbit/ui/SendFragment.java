@@ -156,6 +156,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                 finishSend(txHash);
             } else if (action.equals(TLNotificationEvents.EVENT_CLICKED_USE_ALL_FUNDS)) {
                 checkToFetchUTXOsAndDynamicFeesAndFillAmountFieldWithWholeBalance();
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                updateAccountBalanceView();
             }
         }
     };
@@ -331,6 +333,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                 new IntentFilter(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_UNCONFIRMED_TRANSACTION));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_CLICKED_USE_ALL_FUNDS));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
 
         if (!((MainActivity) getActivity()).initializedAppAndLoadedWallet) {
@@ -422,7 +426,7 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
 
     void showPromptThenPassphraseActivity() {
         TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
-                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.i_understand), new TLPrompts.PromptOKCallback() {
                     @Override
                     public void onSuccess() {
                         Intent intent = new Intent(getActivity(), PassphraseActivity.class);
@@ -1164,7 +1168,15 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
 
     private void reviewPaymentClicked() {
         String toAddress = this.toAddressEditText.getText().toString();
-
+        if (!TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            TLPrompts.promptWithOneButton(getActivity(), null,
+                    getString(R.string.reusable_address_disabled), getString(R.string.ok_capitalize), new TLPrompts.PromptOKCallback() {
+                        @Override
+                        public void onSuccess() {
+                        }
+                    });
+            return;
+        }
         if (toAddress != null && TLStealthAddress.isStealthAddress(toAddress, appDelegate.appWallet.walletConfig.isTestnet)) {
 
             if (!appDelegate.suggestions.disabledShowStealthPaymentNote()) {
@@ -1290,34 +1302,8 @@ public class SendFragment extends android.support.v4.app.Fragment implements Vie
                                 }
 
                                 if (feeAmountString != null && !feeAmountString.isEmpty()) {
-                                    if (TLTransactionFee.isTransactionFeeTooLow(feeAmount)) {
-                                        TLPrompts.promptYesNo(getActivity(), getString(R.string.low_fee_not_recommended), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                            @Override
-                                            public void onSuccess(Object obj) {
-                                                appDelegate.sendFormData.feeAmount = feeAmount;
-                                                updateReviewPaymentView();
-                                            }
-
-                                            @Override
-                                            public void onCancel() {
-                                            }
-                                        });
-                                    } else if (TLTransactionFee.isTransactionFeeTooHigh(feeAmount)) {
-                                        TLPrompts.promptYesNo(getActivity(), getString(R.string.high_fee_not_necessary), "", getString(R.string.continue_capitalize), getString(R.string.cancel), new TLPrompts.PromptCallback() {
-                                            @Override
-                                            public void onSuccess(Object obj) {
-                                                appDelegate.sendFormData.feeAmount = feeAmount;
-                                                updateReviewPaymentView();
-                                            }
-
-                                            @Override
-                                            public void onCancel() {
-                                            }
-                                        });
-                                    } else {
-                                        appDelegate.sendFormData.feeAmount = feeAmount;
-                                        updateReviewPaymentView();
-                                    }
+                                    appDelegate.sendFormData.feeAmount = feeAmount;
+                                    updateReviewPaymentView();
                                 }
                             }
 

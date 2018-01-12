@@ -4,7 +4,7 @@ apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion '26.0.2'
 
     dexOptions {
         javaMaxHeapSize "4g"
@@ -14,8 +14,8 @@ android {
         applicationId "com.arcbit.arcbit"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 23
-        versionName "1.0.12"
+        versionCode 32
+        versionName "1.0.20"
         multiDexEnabled true
     }
     buildTypes {
@@ -88,7 +88,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.3.1'
+        classpath 'me.tatarka:gradle-retrolambda:3.6.1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'io.fabric.tools:gradle:1.+'
     }

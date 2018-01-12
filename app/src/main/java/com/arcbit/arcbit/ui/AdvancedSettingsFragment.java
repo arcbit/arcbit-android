@@ -15,6 +15,7 @@ import android.webkit.URLUtil;
 import com.arcbit.arcbit.model.TLAppDelegate;
 import com.arcbit.arcbit.APIs.TLBlockExplorerAPI;
 
+import com.arcbit.arcbit.model.TLWalletUtils;
 import com.arcbit.arcbit.ui.utils.TLPrompts;
 import com.arcbit.arcbit.ui.utils.TLToast;
 import com.arcbit.arcbit.R;
@@ -58,6 +59,10 @@ public class AdvancedSettingsFragment extends PreferenceFragment implements Pref
         defaultReusableAddressesPref = (SwitchPreference) findPreference("default_reusable_addresses");
         defaultReusableAddressesPref.setSummary(getString(R.string.enable_default_reusable_address_description));
         defaultReusableAddressesPref.setChecked(appDelegate.preferences.enabledStealthAddressDefault());
+        if (!TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            PreferenceCategory category = (PreferenceCategory) findPreference("advanced_settings");
+            category.removePreference(defaultReusableAddressesPref);
+        }
 
         blockExplorerURLPref = findPreference("block_explorer_url");
         String url = appDelegate.preferences.getBlockExplorerURL(blockExplorer);
@@ -84,13 +89,15 @@ public class AdvancedSettingsFragment extends PreferenceFragment implements Pref
             }
         });
 
-        findPreference("default_reusable_addresses").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                appDelegate.preferences.setEnabledStealthAddressDefault(!defaultReusableAddressesPref.isChecked());
-                return true;
-            }
-        });
+        if (TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            findPreference("default_reusable_addresses").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    appDelegate.preferences.setEnabledStealthAddressDefault(!defaultReusableAddressesPref.isChecked());
+                    return true;
+                }
+            });
+        }
     }
 
     @Override

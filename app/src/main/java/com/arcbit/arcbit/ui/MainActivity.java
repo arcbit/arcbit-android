@@ -262,6 +262,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if (TLAppDelegate.instance() != null && TLAppDelegate.instance().exchangeRate != null) {
+            TLAppDelegate.instance().exchangeRate.getExchangeRates(new TLCallback() {
+                @Override
+                public void onSuccess(Object obj) {
+                    LocalBroadcastManager.getInstance(TLAppDelegate.instance().context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
+                    Log.d(TAG, "onResume getExchangeRates onSuccess: ");
+                }
+
+                @Override
+                public void onFail(Integer status, String error) {
+                    Log.d(TAG, "onResume getExchangeRates onFail: ");
+
+                }
+            });
+        }
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         LocalBroadcastManager.getInstance(TLAppDelegate.instance().context).unregisterReceiver(receiver);

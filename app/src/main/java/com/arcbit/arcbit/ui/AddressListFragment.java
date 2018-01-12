@@ -3,8 +3,10 @@ package com.arcbit.arcbit.ui;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -14,6 +16,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.Toolbar;
 import android.support.v4.util.Pair;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,10 +54,24 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
     private int rowCount;
     private TLWalletJSONKeys.TLAddressType selectedAddressType;
     private String selectedAddress;
+    private AddressListAdapter addressListAdapter;
 
     private enum CellType {
         CellTypeNone, CellTypePaymentAddress, CellTypeMainActiveAddress, CellTypeMainArchivedAddress, CellTypeChangeActiveAddress, CellTypeChangeArchivedAddress;
     }
+
+    private BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+
+            if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                if (addressListAdapter != null) {
+                    addressListAdapter.notifyDataSetChanged();
+                }
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,8 +81,9 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
             return rootView;
         }
 
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
         LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_ACCOUNT_ADDRESSES));
-
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -114,31 +132,37 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         if (position == 0) {
             return new Pair<>(CellType.CellTypeNone, -1);
         }
-        if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
-            maxRange += Math.max(1, accountObject.stealthWallet.getStealthAddressPaymentsCount());
-        } else {
-            maxRange++;
-        }
 
-        if (position < maxRange) {
+        if (TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
+                maxRange += Math.max(1, accountObject.stealthWallet.getStealthAddressPaymentsCount());
+            } else {
+                maxRange++;
+            }
+
+            if (position < maxRange) {
+                if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
+                    if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
+                        return new Pair<>(CellType.CellTypeNone, -1);
+                    } else {
+                        return new Pair<>(CellType.CellTypePaymentAddress, accountObject.stealthWallet.getStealthAddressPaymentsCount()-(position-offset)-1);
+                    }
+                } else {
+                    return new Pair<>(CellType.CellTypeNone, -1);
+                }
+            }
             if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
                 if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
-                    return new Pair<>(CellType.CellTypeNone, -1);
+                    offset++;
                 } else {
-                    return new Pair<>(CellType.CellTypePaymentAddress, accountObject.stealthWallet.getStealthAddressPaymentsCount()-(position-offset)-1);
+                    offset += accountObject.stealthWallet.getStealthAddressPaymentsCount();
                 }
             } else {
-                return new Pair<>(CellType.CellTypeNone, -1);
-            }
-        }
-        if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
-            if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
                 offset++;
-            } else {
-                offset += accountObject.stealthWallet.getStealthAddressPaymentsCount();
             }
         } else {
-            offset++;
+            offset--;
+            maxRange--;
         }
 
         if (accountObject.getMainActiveAddressesCount() != 0) {
@@ -218,13 +242,17 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
     }
 
     void updateListView() {
-        rowCount = 5; //num headers
-        if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
-            if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
-                rowCount++;
-            } else {
-                rowCount += accountObject.stealthWallet.getStealthAddressPaymentsCount();
+        if (TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+            rowCount = 5; //num headers
+            if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
+                if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
+                    rowCount++;
+                } else {
+                    rowCount += accountObject.stealthWallet.getStealthAddressPaymentsCount();
+                }
             }
+        } else {
+            rowCount = 4; //num headers
         }
         if (accountObject.getMainActiveAddressesCount() == 0) {
             rowCount++;
@@ -246,11 +274,11 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         } else {
             rowCount += accountObject.getChangeArchivedAddressesCount();
         }
-        AddressListAdapter adapter = new AddressListAdapter(rootView.getContext());
+        addressListAdapter = new AddressListAdapter(rootView.getContext());
 
         addressListview = (ListView) rootView.findViewById(R.id.address_list_view);
 
-        addressListview.setAdapter(adapter);
+        addressListview.setAdapter(addressListAdapter);
     }
 
     private class AddressListAdapter extends ArrayAdapter<Item> {
@@ -273,39 +301,44 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         public Item getItem(int position) {
             int offset = 1;
             int maxRange = 1;
-            if (position == 0) {
-                return new SectionItem(getString(R.string.reusable_address_payment_addresses));
-            }
-            if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
-                maxRange += Math.max(1, accountObject.stealthWallet.getStealthAddressPaymentsCount());
-            } else {
-                maxRange++;
-            }
+            if (TLWalletUtils.ENABLE_STEALTH_ADDRESS()) {
+                if (position == 0) {
+                    return new SectionItem(getString(R.string.reusable_address_payment_addresses));
+                }
+                if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
+                    maxRange += Math.max(1, accountObject.stealthWallet.getStealthAddressPaymentsCount());
+                } else {
+                    maxRange++;
+                }
 
-            if (position < maxRange) {
+                if (position < maxRange) {
+                    if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
+                        if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
+                            return new LeftTitleItem(getString(R.string.none_currently));
+                        } else {
+                            String address = accountObject.stealthWallet.getPaymentAddressForIndex(accountObject.stealthWallet.getStealthAddressPaymentsCount() - (position - offset) - 1);
+                            if (!showBalances) {
+                                return new LeftTitleItem(address);
+                            }
+                            String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getAddressBalance(address));
+                            return new EntryItem(balance, address);
+                        }
+                    } else {
+                        return new LeftTitleItem(getString(R.string.this_account_type_cant_see_reusable_address_payments));
+                    }
+                }
                 if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
                     if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
-                        return new LeftTitleItem(getString(R.string.none_currently));
+                        offset++;
                     } else {
-                        String address = accountObject.stealthWallet.getPaymentAddressForIndex(accountObject.stealthWallet.getStealthAddressPaymentsCount()-(position-offset)-1);
-                        if (!showBalances) {
-                            return new LeftTitleItem(address);
-                        }
-                        String balance = appDelegate.currencyFormat.getProperAmount(accountObject.getAddressBalance(address));
-                        return new EntryItem(balance, address);
+                        offset += accountObject.stealthWallet.getStealthAddressPaymentsCount();
                     }
                 } else {
-                    return new LeftTitleItem(getString(R.string.this_account_type_cant_see_reusable_address_payments));
-                }
-            }
-            if (accountObject.getAccountType() != TLWalletUtils.TLAccountType.ImportedWatch && accountObject.getAccountType() != TLWalletUtils.TLAccountType.ColdWallet) {
-                if (accountObject.stealthWallet.getStealthAddressPaymentsCount() == 0) {
                     offset++;
-                } else {
-                    offset += accountObject.stealthWallet.getStealthAddressPaymentsCount();
                 }
             } else {
-                offset++;
+                offset--;
+                maxRange--;
             }
 
             if (accountObject.getMainActiveAddressesCount() != 0) {
@@ -640,5 +673,13 @@ public class AddressListFragment extends android.support.v4.app.Fragment {
         }
         TLPrompts.promptQRCodeDialogCopyToClipboard(getActivity(), privateKey);
         LocalBroadcastManager.getInstance(appDelegate.context).sendBroadcast(new Intent(TLNotificationEvents.EVENT_VIEW_ACCOUNT_PRIVATE_KEY));
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (appDelegate != null) {
+            LocalBroadcastManager.getInstance(appDelegate.context).unregisterReceiver(receiver);
+        }
     }
 }

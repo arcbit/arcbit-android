@@ -86,6 +86,8 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
                 updateTransactionsTableView();
             } else if (action.equals(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_BLOCK)) {
                 updateTransactionsTableView();
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                updateTransactionsTableView();
             }
         }
     };
@@ -121,6 +123,8 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
                 new IntentFilter(TLNotificationEvents.EVENT_PREFERENCES_FIAT_DISPLAY_CHANGED));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_MODEL_UPDATED_NEW_BLOCK));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.arcbit_main, R.color.arcbit_main, R.color.arcbit_main);

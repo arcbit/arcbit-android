@@ -209,7 +209,7 @@ public class TLAccountObject {
             //set later in accounts
         }
         try {
-            if (accountType != TLAccountType.ImportedWatch && accountType != TLAccountType.ColdWallet) {
+            if (TLWalletUtils.ALLOW_MANUAL_SCAN_FOR_STEALTH_PAYMENT() && accountType != TLAccountType.ImportedWatch && accountType != TLAccountType.ColdWallet) {
                 JSONArray stealthAddressArray = accountDict.getJSONArray(TLWalletJSONKeys.WALLET_PAYLOAD_KEY_STEALTH_ADDRESSES);
                 JSONObject stealthWalletDict = stealthAddressArray.getJSONObject(0);
                 this.stealthWallet = new TLStealthWallet(this.appDelegate, stealthWalletDict, this, !this.isArchived());

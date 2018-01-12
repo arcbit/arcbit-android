@@ -1,7 +1,13 @@
 package com.arcbit.arcbit.APIs;
 
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
+import android.view.View;
 
+import com.arcbit.arcbit.model.TLCallback;
 import com.arcbit.arcbit.model.TLCoin;
 
 import org.json.JSONArray;
@@ -28,39 +34,71 @@ public class TLExchangeRate {
         ((DecimalFormat) formatter).setDecimalFormatSymbols(decimalFormatSymbols);
     }
 
-    public void getExchangeRates() {
+    public void getExchangeRates(TLCallback callback) {
         exchangeRateDict = new JSONObject();
+        Handler handler = new Handler(Looper.getMainLooper()) {
+            @Override
+            public void handleMessage(Message msg) {
+                Object obj = msg.obj;
+                if (obj == null) {
+                    return;
+                }
+
+                if (obj instanceof String) {
+                    try {
+                        JSONArray array = new JSONArray((String) obj);
+                        for(int i = 0; i < array.length(); i++) {
+                            JSONObject dict = array.getJSONObject(i);
+                            exchangeRateDict.put(dict.getString("code"), dict);
+                        }
+                        if (callback != null) {
+                            callback.onSuccess(null);
+                        }
+                    } catch (JSONException e) {
+                        Log.d(TAG, "getExchangeRates onPostExecute String: " + e.getLocalizedMessage());
+                        if (callback != null) {
+                            callback.onFail(-1001, e.getLocalizedMessage());
+                        }
+                    }
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jsonObject = (JSONObject) obj;
+                    try {
+                        Log.d(TAG, "getExchangeRates onFail status: "
+                                + jsonObject.get(TLNetworking.HTTP_ERROR_CODE) + " error: " +
+                                jsonObject.get(TLNetworking.HTTP_ERROR_MSG));
+                        if (callback != null) {
+                            callback.onFail(jsonObject.getInt(TLNetworking.HTTP_ERROR_CODE), jsonObject.getString(TLNetworking.HTTP_ERROR_MSG));
+                        }
+                    } catch (JSONException e) {
+                        Log.d(TAG, "getExchangeRates onPostExecute JSONObject: " + e.getLocalizedMessage());
+                        if (callback != null) {
+                            callback.onFail(-1001, e.getLocalizedMessage());
+                        }
+                    }
+                }
+            }
+        };
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     Object obj = networking.getURLNotJSON("https://bitpay.com/api/rates");
-                    if (obj == null) {
-                        return;
-                    }
-                    if (obj instanceof String) {
-                        try {
-                            JSONArray array = new JSONArray((String) obj);
-                            for(int i = 0; i < array.length(); i++) {
-                                JSONObject dict = array.getJSONObject(i);
-                                exchangeRateDict.put(dict.getString("code"), dict);
-                            }
-                        } catch (JSONException e) {
-                            Log.d(TAG, "getExchangeRates onPostExecute String: " + e.getLocalizedMessage());
-                        }
-                    } else if (obj instanceof JSONObject) {
-                        JSONObject jsonObject = (JSONObject) obj;
-                        try {
-                            Log.d(TAG, "getExchangeRates onFail status: "
-                                    + jsonObject.get(TLNetworking.HTTP_ERROR_CODE) + " error: " +
-                                    jsonObject.get(TLNetworking.HTTP_ERROR_MSG));
-                        } catch (JSONException e) {
-                            Log.d(TAG, "getExchangeRates onPostExecute JSONObject: " + e.getLocalizedMessage());
-                        }
-                    }
+                    Message message = Message.obtain();
+                    message.obj = obj;
+                    handler.sendMessage(Message.obtain(message));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try {
+                    Object obj = networking.getURLNotJSON("https://bitpay.com/api/rates");
+
                 } catch (Exception e) {
                     Log.d(TAG, "getExchangeRates doInBackground: " + e.getLocalizedMessage());
                     e.printStackTrace();
+                    if (callback != null) {
+                        callback.onFail(-1001, e.getLocalizedMessage());
+                    }
                 }
             }
         }).start();

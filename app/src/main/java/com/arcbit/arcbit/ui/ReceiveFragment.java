@@ -94,6 +94,8 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
                 updateViewToNewSelectedObject();
             } else if (action.equals(TLNotificationEvents.EVENT_CLICKED_REFRESH_BALANCE)) {
                 refreshSelectedAccount(true);
+            } else if (action.equals(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED)) {
+                updateAccountBalance();
             }
         }
     };
@@ -120,6 +122,8 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
                 new IntentFilter(TLNotificationEvents.EVENT_PREFERENCES_FIAT_DISPLAY_CHANGED));
         LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
                 new IntentFilter(TLNotificationEvents.EVENT_CLICKED_REFRESH_BALANCE));
+        LocalBroadcastManager.getInstance(getActivity()).registerReceiver(receiver,
+                new IntentFilter(TLNotificationEvents.EVENT_EXCHANGE_RATE_UPDATED));
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getActivity().setTitle(getString(R.string.receive));
@@ -214,7 +218,7 @@ public class ReceiveFragment extends android.support.v4.app.Fragment implements 
 
     void showPromptThenPassphraseActivity() {
         TLPrompts.promptWithOneButton(getActivity(), getString(R.string.wallet_backup_passphrase_will_be_shown),
-                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.show), new TLPrompts.PromptOKCallback() {
+                getString(R.string.please_write_down_or_memorize_your_wallet_backup_passphrase), getString(R.string.i_understand), new TLPrompts.PromptOKCallback() {
                     @Override
                     public void onSuccess() {
                         Intent intent = new Intent(getActivity(), PassphraseActivity.class);
