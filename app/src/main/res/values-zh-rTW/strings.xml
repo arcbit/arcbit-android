@@ -130,7 +130,7 @@
 	<string name="enable_pin_code_to_better_secure">在設置中啟用PIN碼才能更好地保護您的錢包。</string>
 	<string name="enable_advanced_mode">啟用高級模式</string>
 	<string name="enable_cold_wallet">啟用冷錢包</string>
-	<string name="enable_advanced_mode_description">啟用高級模式會顯露隱藏的功能(譬如導入比特幣的私密金鑰和地址。但是請注意，備份密碼短語不能恢復它們，所以它們需要單獨備份）。要查看所有高級功能的清單，啟用高級模式並轉到説明部分。</string>
+	<string name="enable_advanced_mode_description">啟用高級模式會公開隱藏的功能(譬如導入比特幣的私密金鑰和地址。但是請注意，備份密碼短語不能恢復它們，所以它們需要單獨備份）。要查看所有高級功能的清單，啟用高級模式並轉到説明部分。</string>
 	<string name="enable_default_reusable_address_description">啟用可重用位址作為默認位址，將會在所有帳戶的接收螢幕中將可重用位址放在最前。</string>
 	<string name="enable_cold_wallet_description">啟用冷錢包功能將允許您創建一個比正常的線上錢包帳戶具備更好安全性的帳戶。您將需要2個設備以使用此功能。一台日常使用的設備連接到互聯網，另一台輔助設備保持離線。您可以在側邊功能表上找到冷錢包功能。</string>
 	<string name="encrypted">加密</string>
