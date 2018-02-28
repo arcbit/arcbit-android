@@ -239,7 +239,7 @@
 	<string name="private_key_does_not_match_address">私密金鑰不匹配地址</string>
 	<string name="private_key_missing">私密金鑰缺失</string>
 	<string name="qr_code">二維碼</string>
-	<string name="rate">比率</string>
+	<string name="rate">評分</string>
 	<string name="rate_app">在Play商店給我們評分！</string>
 	<string name="receive">接收</string>
 	<string name="reenter_new_pin">重新輸入新的PIN碼</string>
